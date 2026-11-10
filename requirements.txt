@@ -1,5 +1,8 @@
-langgraph>=0.6,<2
-autogen-agentchat>=0.7,<1
-autogen-ext[openai]>=0.7,<1
-httpx>=0.27,<1
-python-dotenv>=1,<2
+# Tested top-level package versions. Python 3.11+; CI uses Python 3.12.
+langgraph==1.2.20
+autogen-agentchat==0.7.5
+autogen-ext[openai]==0.7.5
+httpx==0.28.1
+python-dotenv==1.2.4
+fastapi==0.162.4
+uvicorn==0.54.0
