@@ -2,31 +2,1164 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="color-scheme" content="light"><title>Research Studio</title>
+<meta name="color-scheme" content="light"><meta name="description" content="A local workspace for literature searches, cited reports and source review."><title>Research Workbench</title>
 <style>
-:root{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#1b2b36;background:#f5f6f2;font-synthesis:none;--green:#165b49;--muted:#63716f;--line:#dce2dc}*{box-sizing:border-box}body{margin:0}button,input,textarea,select{font:inherit}a{color:var(--green)}button,a,input,textarea,select{outline-offset:4px}button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid #cfaa5b}button{cursor:pointer}button:disabled{cursor:wait;opacity:.6}header{border-bottom:1px solid var(--line);background:#fff;padding:19px 5vw;display:flex;align-items:center;justify-content:space-between}.brand{font-weight:750;letter-spacing:-.6px;font-size:20px;display:flex;align-items:center;gap:12px}.mark{width:34px;height:34px;background:var(--green);border-radius:10px;display:grid;place-items:center;color:#fff}.tag{font-size:11px;color:var(--muted);letter-spacing:1px;text-transform:uppercase}.wrap{max-width:1300px;padding:45px 5vw;margin:auto}.intro{display:flex;gap:35px;justify-content:space-between;align-items:center;margin-bottom:32px}h1{font-size:clamp(28px,4vw,40px);line-height:1.15;margin:0 0 12px;letter-spacing:-1.5px}.intro p{color:var(--muted);margin:0;max-width:630px;line-height:1.6}.pill{padding:8px 12px;border:1px solid var(--line);background:#fff;border-radius:30px;font-size:12px;white-space:nowrap}.layout{display:grid;grid-template-columns:340px minmax(0,1fr);gap:24px;align-items:start}.panel{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden}.input-panel{padding:24px}.eyebrow{font-size:11px;font-weight:750;color:var(--green);text-transform:uppercase;letter-spacing:1.3px;margin:0 0 20px}.input-panel h2{font-size:21px;letter-spacing:-.5px;margin:0 0 22px}label{display:block;font-size:13px;font-weight:650;margin-bottom:8px}textarea,select,input{border:1px solid #cad5cd;background:#fcfdfb;color:inherit;padding:12px;border-radius:8px;width:100%}textarea{min-height:132px;resize:vertical;line-height:1.5}select{margin-top:0}.field{margin-bottom:20px}.hint{font-size:12px;line-height:1.55;color:var(--muted);margin:8px 0 0}.primary{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;border:0;border-radius:8px;background:var(--green);color:white;padding:13px 18px;font-weight:650}.secondary{border:1px solid #cfd8d0;border-radius:7px;background:white;color:#284c3f;padding:9px 12px;font-size:12px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:6px}.secondary:hover{background:#f0f5ef}.cancel{width:100%;margin-top:10px;justify-content:center}.info{margin-top:24px;border-top:1px solid var(--line);padding-top:19px;font-size:12px;line-height:1.65;color:var(--muted)}.topbar{padding:20px 24px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:12px}.topbar h2{font-size:15px;margin:0;font-weight:700}.actions{display:flex;gap:8px;flex-wrap:wrap}.stagebar{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:22px 24px;background:#fbfcf9;border-bottom:1px solid var(--line)}.stage{font-size:11px;color:var(--muted);display:flex;align-items:center;gap:7px}.dot{width:20px;height:20px;border-radius:50%;border:1px solid #cfd6cd;display:grid;place-items:center;background:white;flex-shrink:0;font-size:10px}.stage.active{color:var(--green);font-weight:700}.stage.active .dot{border-color:var(--green);background:#e5f1e9}.stage.done .dot{color:#fff;background:var(--green);border-color:var(--green)}.workspace{min-height:440px;padding:28px}.empty{text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:370px}.empty-icon{width:72px;height:72px;display:grid;place-items:center;background:#edf3ed;border-radius:20px;color:var(--green);margin-bottom:21px}.empty h3{font-size:19px;margin:0 0 10px;letter-spacing:-.4px}.empty p{max-width:380px;font-size:13px;line-height:1.7;color:var(--muted);margin:0}.examples{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:25px}.example{border:1px solid #dce3d8;border-radius:20px;background:white;padding:8px 12px;color:#4f6458;font-size:11px}.example:hover{background:#f0f4ed}.banner{padding:12px 15px;border-radius:8px;font-size:12px;line-height:1.6;background:#edf4ed;color:#315744;margin-bottom:20px}.error{background:#fff0eb;color:#8b3e29;border:1px solid #f3d4c6}.status{font-size:12px;color:var(--muted);margin:0 0 18px;line-height:1.6}.report{white-space:pre-wrap;overflow-wrap:anywhere;font-family:inherit;font-size:14px;line-height:1.85;margin:0;color:#2a3d44}.sources{border-top:1px solid var(--line);padding:24px}.sources h3{font-size:13px;margin:0 0 15px}.source{padding:14px 0;border-bottom:1px solid #e9ece7}.source:last-child{border-bottom:none;padding-bottom:0}.source a,.source strong{font-size:13px;font-weight:650;line-height:1.55}.source p{font-size:12px;line-height:1.7;color:var(--muted);margin:8px 0 0}.source summary{cursor:pointer;font-size:12px;color:var(--green);margin-top:8px}.footer{margin-top:25px;font-size:11px;color:#7a867f;text-align:center}.toast{font-size:12px;color:var(--green);margin-top:10px}.spinner{width:32px;height:32px;border-radius:50%;border:3px solid #d9e4d9;border-top-color:var(--green);animation:spin 1s linear infinite;margin:0 auto 20px}@keyframes spin{to{transform:rotate(360deg)}}[hidden]{display:none!important}@media(prefers-reduced-motion:reduce){.spinner{animation:none}}@media(max-width:850px){.layout{grid-template-columns:1fr}.intro{display:block}.intro .pill{display:inline-block;margin-top:20px}.input-panel{padding:20px}.wrap{padding-top:30px}.workspace{padding:22px}.stagebar{padding:18px 14px}.topbar{padding:18px}.stage{font-size:10px;gap:4px}.dot{width:17px;height:17px}.brand{font-size:17px}.tag{font-size:9px}.empty{min-height:280px}}
+:root {
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  color:#222a35;
+  background:#fff;
+  font-synthesis:none;
+  --ink:#222a35;
+  --muted:#69727e;
+  --navy:#263e5c;
+  --line:#dde1e6;
+  --surface:#f6f7f9;
+}
+* {
+  box-sizing:border-box;
+}
+body {
+  margin:0;
+}
+button,input,textarea,select {
+  font:inherit;
+}
+button,a,textarea,select {
+  outline-offset:3px;
+}
+button:focus-visible,a:focus-visible,textarea:focus-visible,select:focus-visible {
+  outline:2px solid #547eb1;
+}
+a {
+  color:#315e8d;
+}
+button {
+  cursor:pointer;
+}
+button:disabled {
+  cursor:wait;
+  opacity:.55;
+}
+button,a {
+  touch-action:manipulation;
+}
+a:hover {
+  text-decoration:underline;
+}
+.skip {
+  position:absolute;
+  top:-60px;
+  left:16px;
+  padding:12px;
+  background:var(--navy);
+  color:white;
+  z-index:5;
+}
+.skip:focus {
+  top:8px;
+}
+.appbar {
+  height:65px;
+  padding:0 27px;
+  border-bottom:1px solid var(--line);
+  display:flex;
+  align-items:center;
+  gap:28px;
+  background:#fff;
+}
+.brand {
+  font-size:16px;
+  font-weight:700;
+  letter-spacing:-.4px;
+  white-space:nowrap;
+}
+.brand span {
+  color:var(--muted);
+  font-weight:400;
+  margin-left:6px;
+}
+.app-nav {
+  display:flex;
+  align-self:stretch;
+  align-items:center;
+  font-size:13px;
+}
+.app-nav a {
+  display:flex;
+  height:100%;
+  align-items:center;
+  padding:0 13px;
+  color:#505b69;
+  text-decoration:none;
+  border-bottom:2px solid transparent;
+}
+.app-nav a[aria-current] {
+  color:var(--navy);
+  border-bottom-color:var(--navy);
+}
+.connection {
+  margin-left:auto;
+  min-width:0;
+  overflow-wrap:anywhere;
+  color:var(--muted);
+  font-size:12px;
+  display:flex;
+  gap:8px;
+  align-items:center;
+}
+.connection:before {
+  content:"";
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:#678578;
+  flex-shrink:0;
+}
+.shell {
+  display:grid;
+  grid-template-columns:270px minmax(0,1fr) 296px;
+  min-height:calc(100vh - 65px);
+}
+.setup {
+  padding:28px 23px;
+  background:var(--surface);
+  border-right:1px solid var(--line);
+  min-width:0;
+}
+.section-label {
+  color:#6f7885;
+  text-transform:uppercase;
+  letter-spacing:1.25px;
+  font:10px ui-monospace,SFMono-Regular,Consolas,monospace;
+  margin:0 0 16px;
+}
+.setup h1 {
+  font-size:20px;
+  font-weight:650;
+  letter-spacing:-.5px;
+  margin:0 0 27px;
+}
+.field {
+  margin-bottom:23px;
+}
+label {
+  display:block;
+  font-size:12px;
+  font-weight:600;
+  margin-bottom:9px;
+}
+textarea,select {
+  border:1px solid #c6ccd4;
+  border-radius:4px;
+  background:#fff;
+  color:var(--ink);
+  width:100%;
+  padding:11px 10px;
+  font-size:13px;
+  line-height:1.55;
+}
+textarea {
+  min-height:142px;
+  resize:vertical;
+}
+select {
+  height:44px;
+  padding-right:24px;
+}
+.hint {
+  font-size:11px;
+  line-height:1.65;
+  color:var(--muted);
+  margin:9px 0 0;
+}
+.primary {
+  min-height:44px;
+  width:100%;
+  background:var(--navy);
+  color:white;
+  border:1px solid var(--navy);
+  border-radius:4px;
+  padding:10px 14px;
+  font-size:12px;
+  font-weight:600;
+  transition:background .15s;
+}
+.primary:hover {
+  background:#172e49;
+}
+.secondary {
+  min-height:36px;
+  display:inline-flex;
+  justify-content:center;
+  align-items:center;
+  gap:7px;
+  border:1px solid #cbd1d9;
+  background:#fff;
+  border-radius:4px;
+  padding:8px 11px;
+  color:#414d5c;
+  font-size:11px;
+  font-weight:550;
+  text-decoration:none;
+  white-space:nowrap;
+}
+.secondary:hover {
+  background:#f0f3f7;
+  text-decoration:none;
+}
+.cancel {
+  width:100%;
+  margin-top:9px;
+  min-height:44px;
+}
+.setup-note {
+  border-top:1px solid var(--line);
+  padding-top:18px;
+  margin-top:28px;
+}
+.setup-note h2 {
+  font-size:11px;
+  font-weight:600;
+  margin:0 0 8px;
+}
+.setup-note p {
+  font-size:11px;
+  line-height:1.7;
+  color:var(--muted);
+  margin:0;
+}
+.samples {
+  margin-top:29px;
+}
+.example {
+  display:block;
+  border:0;
+  border-bottom:1px solid var(--line);
+  background:none;
+  width:100%;
+  min-height:44px;
+  padding:11px 0;
+  text-align:left;
+  color:#4b5d73;
+  font-size:11px;
+}
+.example:hover {
+  color:var(--navy);
+  background:#edf0f4;
+}
+.example span {
+  float:right;
+  color:#8a94a1;
+}
+.document-pane {
+  min-width:0;
+  display:flex;
+  flex-direction:column;
+}
+.document-toolbar {
+  height:70px;
+  padding:0 32px;
+  border-bottom:1px solid var(--line);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+}
+.document-toolbar h2 {
+  font-size:13px;
+  font-weight:600;
+  margin:0;
+}
+.actions {
+  display:flex;
+  gap:7px;
+}
+.stagebar {
+  padding:15px 32px;
+  border-bottom:1px solid var(--line);
+  display:flex;
+  gap:19px;
+  background:#fcfcfd;
+}
+.stage {
+  font-size:10px;
+  color:#646e7a;
+  display:flex;
+  align-items:center;
+  gap:6px;
+  white-space:nowrap;
+}
+.dot {
+  font:10px ui-monospace,SFMono-Regular,Consolas,monospace;
+  color:#646e7a;
+}
+.stage.active {
+  color:var(--navy);
+  font-weight:600;
+}
+.stage.done {
+  color:#3e6655;
+}
+.workspace {
+  padding:33px 38px 60px;
+  flex:1;
+  min-width:0;
+}
+.empty {
+  max-width:520px;
+  padding-top:27px;
+}
+.empty h3 {
+  font:400 30px/1.2 Georgia,"Times New Roman",serif;
+  letter-spacing:-.5px;
+  margin:0 0 15px;
+  color:#344156;
+}
+.empty p {
+  font-size:13px;
+  line-height:1.8;
+  color:var(--muted);
+  max-width:410px;
+  margin:0;
+}
+.progress {
+  padding:35px 0;
+}
+.progress h3 {
+  font-size:19px;
+  font-weight:500;
+  margin:0 0 10px;
+}
+.progress p {
+  font-size:13px;
+  color:var(--muted);
+  line-height:1.8;
+  max-width:420px;
+}
+.progress-line {
+  height:2px;
+  width:110px;
+  background:#e0e6ed;
+  margin-bottom:25px;
+  overflow:hidden;
+}
+.progress-line:after {
+  content:"";
+  display:block;
+  width:50%;
+  height:100%;
+  background:var(--navy);
+  animation:loading 1.6s ease-in-out infinite alternate;
+}
+@keyframes loading {
+  to {
+    transform:translateX(100%);
+  }
+}
+.banner {
+  border-left:2px solid #9fadc0;
+  background:#f4f6f9;
+  color:#536174;
+  padding:10px 13px;
+  font-size:11px;
+  line-height:1.65;
+  margin:0 0 17px;
+}
+.error {
+  border-color:#b47162;
+  background:#fbf3f1;
+  color:#8a4b3a;
+}
+.status {
+  font:10px/1.6 ui-monospace,SFMono-Regular,Consolas,monospace;
+  color:#646e7a;
+  margin:0 0 30px;
+}
+.report {
+  font-family:Georgia,"Times New Roman",serif;
+  line-height:1.8;
+  font-size:15px;
+  color:#303a48;
+  overflow-wrap:anywhere;
+}
+.report h2 {
+  font-size:29px;
+  font-weight:400;
+  letter-spacing:-.5px;
+  line-height:1.3;
+  margin:0 0 25px;
+  color:#202e41;
+}
+.report h3 {
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  font-size:14px;
+  line-height:1.5;
+  font-weight:650;
+  margin:32px 0 13px;
+  padding-bottom:9px;
+  border-bottom:1px solid var(--line);
+  color:#2b3b50;
+}
+.report h4,.report h5,.report h6 {
+  font-size:17px;
+  line-height:1.55;
+  font-weight:600;
+  margin:23px 0 10px;
+}
+.report p {
+  margin:0 0 18px;
+}
+.report ul,.report ol {
+  padding-left:22px;
+  margin:0 0 22px;
+}
+.report li {
+  padding-left:3px;
+  margin:7px 0;
+}
+.report blockquote {
+  border-left:2px solid #c4cfdd;
+  padding:4px 15px;
+  margin:0 0 24px;
+  color:#78808b;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  font-size:11px;
+  line-height:1.7;
+}
+.report pre {
+  padding:15px;
+  background:var(--surface);
+  overflow:auto;
+  border:1px solid var(--line);
+  border-radius:4px;
+  white-space:pre-wrap;
+}
+.report code {
+  font-family:ui-monospace,SFMono-Regular,Consolas,monospace;
+  font-size:.85em;
+}
+.citation {
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  font-size:11px;
+  color:#375f8a;
+  text-decoration:none;
+  white-space:nowrap;
+}
+.toast {
+  font-size:11px;
+  color:#476c59;
+  min-height:16px;
+  margin-top:25px;
+}
+.evidence {
+  border-left:1px solid var(--line);
+  background:#fafbfc;
+  padding:27px 22px;
+  min-width:0;
+}
+.evidence-header {
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  gap:10px;
+  border-bottom:1px solid var(--line);
+  padding-bottom:18px;
+  margin-bottom:20px;
+}
+.evidence-header h2 {
+  font-size:12px;
+  font-weight:600;
+  margin:0;
+}
+.source-count {
+  font:10px ui-monospace,SFMono-Regular,Consolas,monospace;
+  color:#646e7a;
+}
+.source-empty {
+  font-size:12px;
+  color:#646e7a;
+  line-height:1.75;
+  margin:0;
+}
+.source {
+  padding:0 0 21px;
+  margin:0 0 21px;
+  border-bottom:1px solid var(--line);
+  scroll-margin-top:20px;
+}
+.source:target {
+  background:#eef2f7;
+  outline:8px solid #eef2f7;
+}
+.source:last-child {
+  border:0;
+}
+.source-id {
+  color:#646e7a;
+  font:10px ui-monospace,SFMono-Regular,Consolas,monospace;
+  margin-bottom:9px;
+}
+.source a,.source strong {
+  font-size:12px;
+  line-height:1.65;
+  font-weight:550;
+  display:block;
+  text-decoration:none;
+  color:#344c68;
+  overflow-wrap:anywhere;
+}
+.source a:hover {
+  text-decoration:underline;
+}
+.source-date {
+  font:10px ui-monospace,SFMono-Regular,Consolas,monospace;
+  color:#646e7a;
+  margin:9px 0;
+}
+.source summary {
+  display:flex;
+  align-items:center;
+  min-height:44px;
+  cursor:pointer;
+  color:#5d6d80;
+  font-size:11px;
+  list-style:none;
+  gap:7px;
+}
+.source summary:before {
+  content:"+";
+  font:14px ui-monospace,SFMono-Regular,Consolas,monospace;
+  color:#8a97a8;
+}
+.source details[open] summary:before {
+  content:"−";
+}
+.source summary::-webkit-details-marker {
+  display:none;
+}
+.source details p {
+  font-size:12px;
+  line-height:1.8;
+  margin:4px 0 0;
+  color:#697789;
+  overflow-wrap:anywhere;
+}
+.source-note {
+  border-top:1px solid var(--line);
+  padding-top:15px;
+  font-size:10px;
+  line-height:1.8;
+  color:#646e7a;
+  margin-top:26px;
+}
+.footer {
+  padding:14px 27px;
+  border-top:1px solid var(--line);
+  font-size:10px;
+  color:#646e7a;
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+}
+[hidden] {
+  display:none!important;
+}
+@media(min-width:1600px) {
+  .shell {
+    grid-template-columns:290px minmax(0,1fr) 325px;
+  }
+  .workspace {
+    padding-left:70px;
+    padding-right:70px;
+  }
+  .report {
+    max-width:760px;
+  }
+}
+@media(max-width:1180px) {
+  .shell {
+    grid-template-columns:250px minmax(0,1fr);
+  }
+  .evidence {
+    grid-column:2;
+    border-top:1px solid var(--line);
+    border-left:0;
+    padding:25px 32px;
+  }
+  .evidence #source-list {
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:0 25px;
+  }
+  .evidence-header {
+    margin-bottom:19px;
+  }
+  .document-toolbar {
+    padding:0 25px;
+  }
+  .workspace {
+    padding:28px 30px 45px;
+  }
+  .stagebar {
+    padding-left:25px;
+    gap:14px;
+  }
+  .connection {
+    max-width:240px;
+  }
+  .setup {
+    grid-row:1/3;
+  }
+}
+@media(max-width:760px) {
+  .appbar {
+    padding:0 18px;
+    height:58px;
+    gap:15px;
+  }
+  .brand {
+    font-size:15px;
+  }
+  .brand span {
+    display:none;
+  }
+  .app-nav a {
+    padding:0 8px;
+    font-size:12px;
+  }
+  .app-nav a:first-child {
+    display:none;
+  }
+  .connection {
+    font-size:10px;
+    max-width:150px;
+    line-height:1.4;
+  }
+  .shell {
+    display:flex;
+    flex-direction:column;
+    min-height:0;
+  }
+  .setup {
+    border-right:0;
+    border-bottom:1px solid var(--line);
+    padding:25px 20px;
+  }
+  .setup h1 {
+    margin-bottom:20px;
+  }
+  .section-label {
+    margin-bottom:10px;
+  }
+  .field {
+    margin-bottom:17px;
+  }
+  textarea {
+    min-height:100px;
+  }
+  .setup-note {
+    display:none;
+  }
+  .samples {
+    display:none;
+  }
+  .document-toolbar {
+    height:auto;
+    min-height:66px;
+    padding:12px 20px;
+    flex-wrap:wrap;
+  }
+  .actions {
+    gap:6px;
+  }
+  .secondary {
+    min-height:44px;
+  }
+  .stagebar {
+    padding:15px 20px;
+    justify-content:space-between;
+    gap:4px;
+  }
+  .stage {
+    font-size:9px;
+    gap:4px;
+  }
+  .workspace {
+    padding:24px 23px 38px;
+  }
+  .empty {
+    padding-top:12px;
+  }
+  .empty h3 {
+    font-size:26px;
+  }
+  .evidence {
+    padding:24px 23px;
+  }
+  .evidence #source-list {
+    display:block;
+  }
+  .report {
+    font-size:15px;
+  }
+  .report h2 {
+    font-size:26px;
+  }
+  .footer {
+    padding:15px 20px;
+    line-height:1.6;
+    font-size:10px;
+  }
+  .footer span {
+    max-width:240px;
+  }
+  .source a {
+    min-height:44px;
+  }
+}
+@media(prefers-reduced-motion:reduce) {
+  .progress-line:after {
+    animation:none;
+  }
+  * {
+    scroll-behavior:auto!important;
+  }
+}
 </style>
 </head>
 <body>
-<header><div class="brand"><span class="mark" aria-hidden="true">✳</span> Research Studio</div><span class="tag">Multi-agent research assistant</span></header>
-<main class="wrap"><div class="intro"><div><p class="eyebrow" style="margin-bottom:12px">From question to evidence</p><h1>A clearer path through research.</h1><p>Gather sources, review the evidence, and bring your findings together in a report you can keep.</p></div><span id="connection" class="pill">Checking configuration…</span></div>
-<div class="layout"><aside class="panel input-panel"><p class="eyebrow">New research</p><h2>What are you exploring?</h2><form id="research-form"><div class="field"><label for="topic">Research topic</label><textarea id="topic" name="topic" required minlength="3" maxlength="500" placeholder="e.g. How is retrieval augmented generation evaluated?">Retrieval augmented generation evaluation</textarea></div><div class="field"><label for="mode">Research mode</label><select id="mode" name="mode" aria-describedby="mode-hint"><option value="demo">Offline sample · no key needed</option><option value="extractive">Live arXiv · source extracts</option><option value="ai" id="ai-option">AI research team · OpenAI</option></select><p class="hint" id="mode-hint">Explore the full workflow using clearly fictional sample sources. No network request or AI model is used.</p></div><div class="field"><label for="limit">Maximum sources</label><select id="limit" name="limit"><option value="3">3 sources</option><option value="5" selected>5 sources</option><option value="8">8 sources</option></select></div><button class="primary" id="start" type="submit">Start research <span aria-hidden="true">↗</span></button><button class="secondary cancel" id="cancel" type="button" hidden>Cancel research</button><p class="hint" id="form-error" role="alert" hidden></p></form><div class="info"><strong>Evidence stays visible.</strong><br>Every completed report includes source identifiers and the retrieved records. Abstracts are a starting point; check full papers before relying on a conclusion.</div></aside>
-<section class="panel" aria-label="Research workspace"><div class="topbar"><h2>Your research workspace</h2><div class="actions" id="actions" hidden><button class="secondary" id="copy" type="button">Copy report</button><a class="secondary" id="download" href="#" download>Download .md <span aria-hidden="true">↓</span></a></div></div><div class="stagebar" aria-label="Workflow stages"><div class="stage" data-stage="collecting"><span class="dot">1</span>Collect</div><div class="stage" data-stage="summarizing"><span class="dot">2</span>Summarize</div><div class="stage" data-stage="reviewing"><span class="dot">3</span>Review</div><div class="stage" data-stage="writing"><span class="dot">4</span>Write</div></div><div class="workspace" aria-live="polite" aria-busy="false" id="workspace"><div class="empty" id="empty"><div class="empty-icon" aria-hidden="true"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 4h7a3 3 0 0 1 3 3v14a4 4 0 0 0-4-2H4V4Zm16 0h-3a3 3 0 0 0-3 3v14a4 4 0 0 1 4-2h2V4Z"/></svg></div><h3>Your next idea starts here.</h3><p>Choose a topic and a mode. Start with the offline sample to explore the workflow immediately.</p><div class="examples"><button class="example" type="button" data-topic="Retrieval augmented generation evaluation">RAG evaluation</button><button class="example" type="button" data-topic="Language model uncertainty">Model uncertainty</button></div></div><div id="progress" class="empty" hidden><div class="spinner" aria-hidden="true"></div><h3 id="progress-title">Collecting sources…</h3><p id="progress-text">The workflow is running. You can leave this tab open while it works.</p></div><p id="error" class="banner error" role="alert" hidden></p><div id="result" hidden><p class="banner" id="result-mode"></p><p class="status" id="result-meta"></p><pre class="report" id="report"></pre><p class="toast" id="copy-status" role="status"></p></div></div><div class="sources" id="sources" hidden><h3>Source library</h3><div id="source-list"></div></div></section></div><p class="footer">Local research workspace · Download reports to keep them after a restart.</p></main>
+<a class="skip" href="#workspace">Skip to report</a>
+<header class="appbar">
+<div class="brand">Research<span>/ Workbench</span>
+</div>
+<nav class="app-nav" aria-label="Main navigation"><a href="#workspace" aria-current="page">Literature review</a><a href="/docs">API reference</a>
+</nav><span class="connection" id="connection" role="status">Connecting…</span>
+</header>
+<main class="shell">
+<aside class="setup" aria-labelledby="setup-title">
+<h1 id="setup-title">Literature review</h1>
+<form id="research-form">
+<div class="field">
+<label for="topic">Research question</label>
+<textarea id="topic" name="topic" required minlength="3" maxlength="500" placeholder="Describe the question you want to investigate">Retrieval augmented generation evaluation</textarea>
+</div>
+<div class="field">
+<label for="mode">Source &amp; analysis</label>
+<select id="mode" name="mode" aria-describedby="mode-hint">
+<option value="demo">Offline sample</option>
+<option value="extractive">arXiv · source extracts</option>
+<option value="ai" id="ai-option">arXiv · agent analysis</option>
+</select>
+<p class="hint" id="mode-hint">Fictional sources for testing the workflow. No search or AI model is used.</p>
+</div>
+<div class="field">
+<label for="limit">Source limit</label>
+<select id="limit" name="limit">
+<option value="3">3 sources</option>
+<option value="5" selected>5 sources</option>
+<option value="8">8 sources</option>
+</select>
+</div>
+<button class="primary" id="start" type="submit">Run literature review</button>
+<button class="secondary cancel" id="cancel" type="button" hidden>Cancel review</button>
+<p class="hint" id="form-error" role="alert" hidden>
+</p>
+</form>
+<div class="samples">
+<p class="section-label">Example questions</p>
+<button class="example" type="button" data-topic="Retrieval augmented generation evaluation">RAG evaluation <span aria-hidden="true">↗</span>
+</button>
+<button class="example" type="button" data-topic="Language model uncertainty">Model uncertainty <span aria-hidden="true">↗</span>
+</button>
+</div>
+<section class="setup-note">
+<h2>Scope of this review</h2>
+<p>The search covers arXiv abstracts. Read the full papers before drawing conclusions from a report.</p>
+</section>
+</aside>
+<section class="document-pane" aria-label="Research report">
+<div class="document-toolbar">
+<h2>Report</h2>
+<div class="actions" id="actions" hidden>
+<button class="secondary" id="copy" type="button">Copy report</button><a class="secondary" id="download" href="#" download>Download .md</a>
+</div>
+</div>
+<div class="stagebar" aria-label="Review stages">
+<div class="stage" data-stage="collecting"><span class="dot">01</span>Collect</div>
+<div class="stage" data-stage="summarizing"><span class="dot">02</span>Summarize</div>
+<div class="stage" data-stage="reviewing"><span class="dot">03</span>Review</div>
+<div class="stage" data-stage="writing"><span class="dot">04</span>Write</div>
+</div>
+<div class="workspace" id="workspace" aria-live="polite" aria-busy="false" tabindex="-1">
+<div class="empty" id="empty">
+<h3>No report yet.</h3>
+<p>Set a research question and choose how to collect and review the sources.</p>
+</div>
+<div id="progress" class="progress" hidden>
+<div class="progress-line" aria-hidden="true">
+</div>
+<h3 id="progress-title">Collecting sources…</h3>
+<p id="progress-text">This review is running. The report and source records will appear here when it finishes.</p>
+</div>
+<p id="error" class="banner error" role="alert" hidden>
+</p>
+<div id="result" hidden>
+<p class="banner" id="result-mode">
+</p>
+<p class="status" id="result-meta">
+</p>
+<article class="report" id="report" aria-label="Report text">
+</article>
+<p class="toast" id="copy-status" role="status">
+</p>
+</div>
+</div>
+</section>
+<aside class="evidence" aria-labelledby="evidence-title">
+<div class="evidence-header">
+<h2 id="evidence-title">Source library</h2><span class="source-count" id="source-count">0 sources</span>
+</div>
+<p class="source-empty" id="source-empty">Retrieved sources will appear here. Each report citation links to its source record.</p>
+<div id="sources" hidden>
+<div id="source-list">
+</div>
+</div>
+<p class="source-note">Source identifiers connect the report to the retrieved material. They do not confirm that every claim is supported.</p>
+</aside>
+</main>
+<footer class="footer"><span>Local workspace. Download reports to keep them after a restart.</span>
+</footer>
 <script>
-const $=id=>document.getElementById(id);let activeJob=null;let timer=null;let report='';
-const hints={demo:'Explore the full workflow using clearly fictional sample sources. No network request or AI model is used.',extractive:'Search live arXiv abstracts and collect them in a cited report. Text is preserved without AI synthesis; no API key is needed.',ai:'Three AutoGen agents research, critique, and write using live arXiv abstracts. Requires the server’s OpenAI API key and incurs provider usage.'};
-const stageNames=['collecting','summarizing','reviewing','writing'];const stageTitles={collecting:'Collecting source material…',summarizing:'Organizing the evidence…',reviewing:'Reviewing findings and limitations…',writing:'Preparing your report…',queued:'Starting your research…'};
-$('mode').onchange=()=>{$('mode-hint').textContent=hints[$('mode').value]};
-document.querySelectorAll('[data-topic]').forEach(b=>b.onclick=()=>{$('topic').value=b.dataset.topic;$('topic').focus()});
-function stages(stage,done=false){const index=stageNames.indexOf(stage);document.querySelectorAll('[data-stage]').forEach((el,i)=>{el.classList.toggle('active',!done&&i===index);el.classList.toggle('done',done||i<index)})}
-function busy(value){$('start').disabled=value;$('topic').disabled=value;$('mode').disabled=value;$('limit').disabled=value;$('cancel').hidden=!value;$('workspace').setAttribute('aria-busy',String(value))}
-function showError(text){$('error').textContent=text;$('error').hidden=false;$('progress').hidden=true;$('empty').hidden=true;busy(false)}
-async function api(url,options){const r=await fetch(url,options);let data;try{data=await r.json()}catch{throw Error('The server returned an unreadable response.')}if(!r.ok)throw Error(typeof data.detail==='string'?data.detail:'Check the topic and try again.');return data}
-function showResult(job){report=job.report;$('report').textContent=report;$('result').hidden=false;$('progress').hidden=true;$('actions').hidden=false;$('download').href='/api/jobs/'+job.id+'/report';$('result-mode').textContent=job.mode==='demo'?'Offline sample · Fictional sample sources. This report does not research the entered topic. No AI model was called.':job.mode==='extractive'?'Live arXiv extracts · Abstracts are reproduced without AI synthesis.':'AI research team · Review generated claims against the source material.';$('result-meta').textContent=job.sources.length+' sources · Completed '+new Date(job.finished_at||job.created_at).toLocaleString();$('sources').hidden=false;$('source-list').replaceChildren();job.sources.forEach(s=>{const card=document.createElement('article');card.className='source';const title=document.createElement(/^https:\/\/arxiv\.org\/abs\//.test(s.url)?'a':'strong');title.textContent='['+s.id+'] '+s.title;if(title.tagName==='A'){title.href=s.url;title.target='_blank';title.rel='noopener noreferrer'}card.append(title);const date=document.createElement('p');date.textContent=s.published;card.append(date);const details=document.createElement('details');const summary=document.createElement('summary');summary.textContent='Read source abstract';const abstract=document.createElement('p');abstract.textContent=s.abstract;details.append(summary,abstract);card.append(details);$('source-list').append(card)});stages('writing',true);busy(false)}
-function stopPolling(){if(timer)clearTimeout(timer);timer=null}
-async function poll(id){try{const job=await api('/api/jobs/'+id);if(activeJob!==id)return;if(job.status==='completed'){showResult(job);sessionStorage.removeItem('research-job');activeJob=null;return}if(job.status==='failed'||job.status==='cancelled'){showError(job.error||'Research stopped.');sessionStorage.removeItem('research-job');activeJob=null;return}$('progress-title').textContent=stageTitles[job.stage]||'Research in progress…';stages(job.stage);timer=setTimeout(()=>poll(id),800)}catch(err){showError(err.message);sessionStorage.removeItem('research-job');activeJob=null}}
-$('research-form').onsubmit=async e=>{e.preventDefault();stopPolling();$('form-error').hidden=true;$('error').hidden=true;$('empty').hidden=true;$('result').hidden=true;$('sources').hidden=true;$('actions').hidden=true;$('copy-status').textContent='';$('progress').hidden=false;$('progress-title').textContent='Starting your research…';const payload={topic:$('topic').value.trim(),mode:$('mode').value,limit:Number($('limit').value)};busy(true);try{const job=await api('/api/jobs',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});activeJob=job.id;sessionStorage.setItem('research-job',job.id);poll(job.id)}catch(err){showError(err.message)}};
-$('cancel').onclick=async()=>{if(!activeJob)return;const id=activeJob;try{await api('/api/jobs/'+id,{method:'DELETE'});stopPolling();activeJob=null;sessionStorage.removeItem('research-job');showError('Research cancelled. You can start a new topic.')}catch(err){showError(err.message)}};
-$('copy').onclick=async()=>{try{await navigator.clipboard.writeText(report);$('copy-status').textContent='Report copied.'}catch{$('copy-status').textContent='Copy is unavailable in this browser. Download the Markdown report instead.'}};
-(async()=>{try{const config=await api('/api/config');$('connection').textContent=config.ai_configured?'AI team configured · '+config.model:'Ready · offline and live extracts';if(!config.ai_configured){$('ai-option').disabled=true;$('ai-option').textContent='AI research team · key required'}}catch{$('connection').textContent='Server connection unavailable'}const saved=sessionStorage.getItem('research-job');if(saved){activeJob=saved;$('empty').hidden=true;$('progress').hidden=false;busy(true);poll(saved)}})();
-</script></body></html>
+const byId = id => document.getElementById(id);
+const examples = Array.from(document.querySelectorAll('[data-topic]'));
+const stageNames = ['collecting', 'summarizing', 'reviewing', 'writing'];
+const stageTitles = {
+  queued: 'Starting the review…',
+  collecting: 'Collecting sources…',
+  summarizing: 'Summarizing the abstracts…',
+  reviewing: 'Reviewing claims and limitations…',
+  writing: 'Writing the report…'
+};
+const modeHints = {
+  demo: 'Fictional sources for testing the workflow. No search or AI model is used.',
+  extractive: 'Search live arXiv abstracts. The report preserves source extracts without AI synthesis.',
+  ai: 'Researcher, critic and writer agents review live arXiv abstracts using OpenAI.'
+};
+const reportNotes = {
+  demo: 'Offline sample using fictional sources. It illustrates the workflow without researching the entered question.',
+  extractive: 'Live arXiv extracts without AI synthesis.',
+  ai: 'Agent analysis. Check generated claims against the sources.'
+};
+let activeJob = null;
+let pollTimer = null;
+let report = '';
+
+function setStages(stage, completed = false) {
+  const current = stageNames.indexOf(stage);
+  document.querySelectorAll('[data-stage]').forEach((element, index) => {
+    const active = !completed && index === current;
+    element.classList.toggle('active', active);
+    element.classList.toggle('done', completed || index < current);
+    if (active) element.setAttribute('aria-current', 'step');
+    else element.removeAttribute('aria-current');
+  });
+}
+
+function setBusy(busy) {
+  for (const element of ['start', 'topic', 'mode', 'limit'].map(byId).concat(examples)) {
+    element.disabled = busy;
+  }
+  byId('cancel').hidden = !busy;
+  byId('cancel').disabled = !activeJob;
+  byId('workspace').setAttribute('aria-busy', String(busy));
+}
+
+function setSourceStatus(count, message) {
+  byId('source-count').textContent = count;
+  byId('source-empty').textContent = message;
+  byId('source-empty').hidden = !message;
+}
+
+function beginReview() {
+  for (const id of ['empty', 'error', 'result', 'sources', 'actions']) byId(id).hidden = true;
+  byId('copy-status').textContent = '';
+  byId('progress').hidden = false;
+  byId('progress-title').textContent = stageTitles.queued;
+  setStages('queued');
+  setSourceStatus('Pending', 'Collecting source records…');
+  setBusy(true);
+}
+
+function showError(message) {
+  byId('error').textContent = message;
+  byId('error').hidden = false;
+  byId('progress').hidden = true;
+  setSourceStatus('0 sources', 'No completed source records.');
+  setBusy(false);
+}
+
+async function api(url, options) {
+  const response = await fetch(url, options);
+  let data;
+  try {
+    data = await response.json();
+  } catch {
+    throw Error('The server returned an unreadable response.');
+  }
+  if (!response.ok) {
+    throw Error(typeof data.detail === 'string' ? data.detail : 'Check the question and try again.');
+  }
+  return data;
+}
+
+function appendInlineText(parent, text, sources) {
+  // Build nodes only. Treat report Markdown and source text as untrusted input.
+  const pattern = /(`[^`]+`|\*\*[^*]+\*\*|\[S\d+\])/g;
+  let cursor = 0;
+  for (const match of text.matchAll(pattern)) {
+    parent.append(text.slice(cursor, match.index));
+    const token = match[0];
+    let node;
+    if (token.startsWith('`')) {
+      node = document.createElement('code');
+      node.textContent = token.slice(1, -1);
+    } else if (token.startsWith('**')) {
+      node = document.createElement('strong');
+      node.textContent = token.slice(2, -2);
+    } else if (sources.has(token.slice(1, -1))) {
+      const sourceId = token.slice(1, -1);
+      node = document.createElement('a');
+      node.className = 'citation';
+      node.href = '#source-' + sourceId;
+      node.textContent = token;
+      node.setAttribute('aria-label', 'Read source ' + sourceId);
+    } else {
+      node = document.createTextNode(token);
+    }
+    parent.append(node);
+    cursor = match.index + token.length;
+  }
+  parent.append(text.slice(cursor));
+}
+
+function renderReport(markdown, sourceRecords) {
+  const target = byId('report');
+  target.replaceChildren();
+  const sources = new Set(sourceRecords.map(source => source.id));
+  let paragraph = [];
+  let list = null;
+  let code = null;
+  function block(tag, text) {
+    const element = document.createElement(tag);
+    appendInlineText(element, text, sources);
+    target.append(element);
+  }
+  function flushParagraph() {
+    if (paragraph.length) block('p', paragraph.join(' '));
+    paragraph = [];
+  }
+  for (const line of markdown.replace(/\r\n/g, '\n').split('\n')) {
+    if (line.startsWith('```')) {
+      flushParagraph();
+      list = null;
+      if (code) code = null;
+      else {
+        const pre = document.createElement('pre');
+        code = document.createElement('code');
+        pre.append(code);
+        target.append(pre);
+      }
+      continue;
+    }
+    if (code) {
+      code.append(line + '\n');
+      continue;
+    }
+    const heading = line.match(/^(#{1,6})\s+(.+)$/);
+    const quote = line.match(/^>\s?(.*)$/);
+    const item = line.match(/^\s*(?:([-*+])|\d+[.)])\s+(.+)$/);
+    if (item) {
+      flushParagraph();
+      const tag = item[1] ? 'ul' : 'ol';
+      if (list?.localName !== tag) {
+        list = document.createElement(tag);
+        target.append(list);
+      }
+      const entry = document.createElement('li');
+      appendInlineText(entry, item[2], sources);
+      list.append(entry);
+      continue;
+    }
+    list = null;
+    if (heading) {
+      flushParagraph();
+      block('h' + Math.min(heading[1].length + 1, 6), heading[2]);
+    } else if (quote) {
+      flushParagraph();
+      block('blockquote', quote[1]);
+    } else if (line.trim()) {
+      paragraph.push(line.trim());
+    } else {
+      flushParagraph();
+    }
+  }
+  flushParagraph();
+}
+
+function renderSource(source) {
+  const entry = document.createElement('article');
+  entry.className = 'source';
+  entry.id = 'source-' + source.id;
+  const id = document.createElement('div');
+  id.className = 'source-id';
+  id.textContent = source.id;
+  const title = document.createElement(/^https:\/\/arxiv\.org\/abs\//.test(source.url) ? 'a' : 'strong');
+  title.textContent = source.title;
+  if (title.tagName === 'A') {
+    title.href = source.url;
+    title.target = '_blank';
+    title.rel = 'noopener noreferrer';
+  }
+  const date = document.createElement('p');
+  date.className = 'source-date';
+  date.textContent = source.published;
+  const details = document.createElement('details');
+  const summary = document.createElement('summary');
+  summary.textContent = 'Read abstract';
+  const abstract = document.createElement('p');
+  abstract.textContent = source.abstract;
+  details.append(summary, abstract);
+  entry.append(id, title, date, details);
+  return entry;
+}
+
+function showResult(job) {
+  report = job.report;
+  // The mode notice above the report covers the generated Markdown preface.
+  const preface = {
+    demo: /^> OFFLINE SAMPLE:[^\n]*\n\n/,
+    extractive: /^> EXTRACTIVE MODE:[^\n]*\n\n/
+  }[job.mode];
+  renderReport(preface ? report.replace(preface, '') : report, job.sources);
+  byId('result').hidden = false;
+  byId('progress').hidden = true;
+  byId('actions').hidden = false;
+  byId('download').href = '/api/jobs/' + job.id + '/report';
+  byId('result-mode').textContent = reportNotes[job.mode];
+  const count = job.sources.length + (job.sources.length === 1 ? ' source' : ' sources');
+  byId('result-meta').textContent = count + ' / ' + new Date(job.finished_at || job.created_at).toLocaleString();
+  byId('sources').hidden = false;
+  setSourceStatus(count, '');
+  byId('source-list').replaceChildren(...job.sources.map(renderSource));
+  setStages('writing', true);
+  setBusy(false);
+}
+
+function finishJob() {
+  clearTimeout(pollTimer);
+  pollTimer = null;
+  activeJob = null;
+  try { sessionStorage.removeItem('research-job'); } catch {}
+}
+
+async function poll(jobId) {
+  try {
+    const job = await api('/api/jobs/' + jobId);
+    if (activeJob !== jobId) return;
+    if (job.status === 'completed') {
+      finishJob();
+      showResult(job);
+    } else if (job.status === 'failed' || job.status === 'cancelled') {
+      finishJob();
+      showError(job.error || 'The review stopped.');
+    } else {
+      byId('progress-title').textContent = stageTitles[job.stage] || 'Review in progress…';
+      setStages(job.stage);
+      pollTimer = setTimeout(() => poll(jobId), 800);
+    }
+  } catch (error) {
+    if (activeJob !== jobId) return;
+    finishJob();
+    showError(error.message);
+  }
+}
+
+byId('mode').addEventListener('change', event => {
+  byId('mode-hint').textContent = modeHints[event.target.value];
+});
+for (const example of examples) {
+  example.addEventListener('click', () => {
+    byId('topic').value = example.dataset.topic;
+    byId('topic').focus();
+  });
+}
+byId('research-form').addEventListener('submit', async event => {
+  event.preventDefault();
+  if (byId('start').disabled) return;
+  const payload = {
+    topic: byId('topic').value.trim(),
+    mode: byId('mode').value,
+    limit: Number(byId('limit').value)
+  };
+  beginReview();
+  try {
+    const job = await api('/api/jobs', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(payload)
+    });
+    activeJob = job.id;
+    byId('cancel').disabled = false;
+    try { sessionStorage.setItem('research-job', job.id); } catch {}
+    poll(job.id);
+  } catch (error) {
+    showError(error.message);
+  }
+});
+byId('cancel').addEventListener('click', async () => {
+  const jobId = activeJob;
+  if (!jobId) return;
+  byId('cancel').disabled = true;
+  try {
+    const job = await api('/api/jobs/' + jobId, {method: 'DELETE'});
+    if (activeJob !== jobId) return;
+    finishJob();
+    if (job.status === 'completed') showResult(job);
+    else showError(job.error || 'Review cancelled.');
+  } catch (error) {
+    if (activeJob !== jobId) return;
+    byId('cancel').disabled = false;
+    byId('progress-title').textContent = error.message;
+  }
+});
+byId('copy').addEventListener('click', async () => {
+  try {
+    await navigator.clipboard.writeText(report);
+    byId('copy-status').textContent = 'Report copied.';
+  } catch {
+    byId('copy-status').textContent = 'Copy is unavailable. Download the Markdown file instead.';
+  }
+});
+
+async function initialize() {
+  try {
+    const config = await api('/api/config');
+    byId('connection').textContent = config.ai_configured ? 'OpenAI · ' + config.model : 'Local workspace';
+    if (!config.ai_configured) {
+      byId('ai-option').disabled = true;
+      byId('ai-option').textContent = 'Agent analysis · key required';
+    }
+  } catch {
+    byId('connection').textContent = 'Server unavailable';
+  }
+  let saved;
+  try { saved = sessionStorage.getItem('research-job'); } catch {}
+  if (saved && !byId('start').disabled) {
+    activeJob = saved;
+    beginReview();
+    poll(saved);
+  }
+}
+initialize();
+</script>
+</body></html>
