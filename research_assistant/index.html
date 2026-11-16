@@ -5,13 +5,107 @@
 <meta name="color-scheme" content="light"><title>Research Studio</title>
 <style>
 :root{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#1b2b36;background:#f5f6f2;font-synthesis:none;--green:#165b49;--muted:#63716f;--line:#dce2dc}*{box-sizing:border-box}body{margin:0}button,input,textarea,select{font:inherit}a{color:var(--green)}button,a,input,textarea,select{outline-offset:4px}button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid #cfaa5b}button{cursor:pointer}button:disabled{cursor:wait;opacity:.6}header{border-bottom:1px solid var(--line);background:#fff;padding:19px 5vw;display:flex;align-items:center;justify-content:space-between}.brand{font-weight:750;letter-spacing:-.6px;font-size:20px;display:flex;align-items:center;gap:12px}.mark{width:34px;height:34px;background:var(--green);border-radius:10px;display:grid;place-items:center;color:#fff}.tag{font-size:11px;color:var(--muted);letter-spacing:1px;text-transform:uppercase}.wrap{max-width:1300px;padding:45px 5vw;margin:auto}.intro{display:flex;gap:35px;justify-content:space-between;align-items:center;margin-bottom:32px}h1{font-size:clamp(28px,4vw,40px);line-height:1.15;margin:0 0 12px;letter-spacing:-1.5px}.intro p{color:var(--muted);margin:0;max-width:630px;line-height:1.6}.pill{padding:8px 12px;border:1px solid var(--line);background:#fff;border-radius:30px;font-size:12px;white-space:nowrap}.layout{display:grid;grid-template-columns:340px minmax(0,1fr);gap:24px;align-items:start}.panel{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden}.input-panel{padding:24px}.eyebrow{font-size:11px;font-weight:750;color:var(--green);text-transform:uppercase;letter-spacing:1.3px;margin:0 0 20px}.input-panel h2{font-size:21px;letter-spacing:-.5px;margin:0 0 22px}label{display:block;font-size:13px;font-weight:650;margin-bottom:8px}textarea,select,input{border:1px solid #cad5cd;background:#fcfdfb;color:inherit;padding:12px;border-radius:8px;width:100%}textarea{min-height:132px;resize:vertical;line-height:1.5}select{margin-top:0}.field{margin-bottom:20px}.hint{font-size:12px;line-height:1.55;color:var(--muted);margin:8px 0 0}.primary{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;border:0;border-radius:8px;background:var(--green);color:white;padding:13px 18px;font-weight:650}.secondary{border:1px solid #cfd8d0;border-radius:7px;background:white;color:#284c3f;padding:9px 12px;font-size:12px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:6px}.secondary:hover{background:#f0f5ef}.cancel{width:100%;margin-top:10px;justify-content:center}.info{margin-top:24px;border-top:1px solid var(--line);padding-top:19px;font-size:12px;line-height:1.65;color:var(--muted)}.topbar{padding:20px 24px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:12px}.topbar h2{font-size:15px;margin:0;font-weight:700}.actions{display:flex;gap:8px;flex-wrap:wrap}.stagebar{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:22px 24px;background:#fbfcf9;border-bottom:1px solid var(--line)}.stage{font-size:11px;color:var(--muted);display:flex;align-items:center;gap:7px}.dot{width:20px;height:20px;border-radius:50%;border:1px solid #cfd6cd;display:grid;place-items:center;background:white;flex-shrink:0;font-size:10px}.stage.active{color:var(--green);font-weight:700}.stage.active .dot{border-color:var(--green);background:#e5f1e9}.stage.done .dot{color:#fff;background:var(--green);border-color:var(--green)}.workspace{min-height:440px;padding:28px}.empty{text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:370px}.empty-icon{width:72px;height:72px;display:grid;place-items:center;background:#edf3ed;border-radius:20px;color:var(--green);margin-bottom:21px}.empty h3{font-size:19px;margin:0 0 10px;letter-spacing:-.4px}.empty p{max-width:380px;font-size:13px;line-height:1.7;color:var(--muted);margin:0}.examples{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:25px}.example{border:1px solid #dce3d8;border-radius:20px;background:white;padding:8px 12px;color:#4f6458;font-size:11px}.example:hover{background:#f0f4ed}.banner{padding:12px 15px;border-radius:8px;font-size:12px;line-height:1.6;background:#edf4ed;color:#315744;margin-bottom:20px}.error{background:#fff0eb;color:#8b3e29;border:1px solid #f3d4c6}.status{font-size:12px;color:var(--muted);margin:0 0 18px;line-height:1.6}.report{white-space:pre-wrap;overflow-wrap:anywhere;font-family:inherit;font-size:14px;line-height:1.85;margin:0;color:#2a3d44}.sources{border-top:1px solid var(--line);padding:24px}.sources h3{font-size:13px;margin:0 0 15px}.source{padding:14px 0;border-bottom:1px solid #e9ece7}.source:last-child{border-bottom:none;padding-bottom:0}.source a,.source strong{font-size:13px;font-weight:650;line-height:1.55}.source p{font-size:12px;line-height:1.7;color:var(--muted);margin:8px 0 0}.source summary{cursor:pointer;font-size:12px;color:var(--green);margin-top:8px}.footer{margin-top:25px;font-size:11px;color:#7a867f;text-align:center}.toast{font-size:12px;color:var(--green);margin-top:10px}.spinner{width:32px;height:32px;border-radius:50%;border:3px solid #d9e4d9;border-top-color:var(--green);animation:spin 1s linear infinite;margin:0 auto 20px}@keyframes spin{to{transform:rotate(360deg)}}[hidden]{display:none!important}@media(prefers-reduced-motion:reduce){.spinner{animation:none}}@media(max-width:850px){.layout{grid-template-columns:1fr}.intro{display:block}.intro .pill{display:inline-block;margin-top:20px}.input-panel{padding:20px}.wrap{padding-top:30px}.workspace{padding:22px}.stagebar{padding:18px 14px}.topbar{padding:18px}.stage{font-size:10px;gap:4px}.dot{width:17px;height:17px}.brand{font-size:17px}.tag{font-size:9px}.empty{min-height:280px}}
+
+:root {
+  color-scheme: dark;
+  font-family: system-ui, sans-serif;
+  --ink: #eef2ff;
+  --muted: #aab7d6;
+  --border: #293753;
+  --panel: #111b32;
+  --field: #0b1327;
+  --accent: #6552ee;
+  background: #080f20;
+  color: var(--ink);
+}
+body { margin: 0; min-height: 100vh; background: #080f20; color: var(--ink); }
+h1, h2, h3 { color: var(--ink); text-wrap: balance; }
+p, .small, .hint, .info, .status { color: var(--muted); }
+a { color: #c1d2ff; text-underline-offset: 4px; }
+button, input, select, textarea { font: inherit; }
+button, input, select, textarea, nav a, .download { min-height: 44px; }
+button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visible,
+select:focus-visible, summary:focus-visible { outline: 2px solid #bfb6ff; outline-offset: 3px; }
+input, select, textarea { background: var(--field); color: var(--ink); border: 1px solid #3b4b70; }
+input::placeholder, textarea::placeholder { color: #a5afd0; }
+button:hover, .secondary:hover { filter: brightness(1.17); }
+button.primary, .primary, #generate, .download {
+  color: white; background: var(--accent); border: 1px solid transparent;
+}
+header.app-rail {
+  position: fixed; inset: 0 auto 0 0; z-index: 2; width: 198px;
+  display: flex; flex-direction: column; align-items: stretch; justify-content: flex-start;
+  gap: 24px; padding: 28px 17px; background: #080e1d; border: 0;
+  border-right: 1px solid var(--border); overflow-y: auto;
+}
+.app-rail .brand { font: 650 19px/1.2 system-ui, sans-serif; letter-spacing: -.35px; }
+.brand-symbol { color: #a8abff; margin-right: 4px; }
+.app-rail nav { display: grid; gap: 7px; }
+.app-rail nav a { display: flex; align-items: center; padding: 0 12px; border-radius: 8px; text-decoration: none; font-size: .88rem; }
+.app-rail nav a:first-child, .app-rail nav a:hover { background: #1b2750; color: #fff; }
+.app-rail .badge, .app-rail .status-chip {
+  margin-top: auto; padding: 10px; border: 1px solid var(--border); border-radius: 8px;
+  color: var(--muted); background: #10192f; font-size: .75rem; letter-spacing: 0; text-transform: none;
+  overflow-wrap: anywhere;
+}
+main.shell, main.wrap { max-width: 1600px; margin: 0 0 0 198px; padding: 30px clamp(20px, 4vw, 58px) 42px; }
+.page-hero {
+  position: relative; isolation: isolate; overflow: hidden; padding: clamp(25px, 5vw, 56px);
+  border: 1px solid var(--border); border-radius: 20px; margin: 0 0 22px;
+  background: radial-gradient(ellipse at 92% 14%, #283b78 0, #152448 47%, #111b32 77%);
+}
+.page-hero h1 { max-width: 18ch; margin: 0 0 12px; font: 700 clamp(2rem, 4.1vw, 4rem)/1.06 system-ui, sans-serif; letter-spacing: -.045em; }
+.page-hero p { max-width: 40ch; margin: 0; color: #d0d9f1; }
+.panel, .preview, form { min-width: 0; }
+.panel { background: var(--panel); border-color: var(--border); }
+footer { color: var(--muted); }
+[hidden] { display: none !important; }
+:where(section, div, form)[id] { scroll-margin-top: 16px; }
+@media (max-width: 760px) {
+  header.app-rail { position: static; width: auto; gap: 10px; padding: 14px 17px; border: 0; border-bottom: 1px solid var(--border); }
+  .app-rail nav { display: flex; gap: 4px; flex-wrap: wrap; }
+  .app-rail .badge, .app-rail .status-chip { margin: 0; align-self: flex-start; }
+  main.shell, main.wrap { margin: 0; padding: 16px 14px 28px; }
+  .page-hero { border-radius: 13px; min-height: 0; }
+}
+
+:root { --green: #9eb9ff; --line: var(--border); }
+.research-hero { display: grid; grid-template-columns: 1fr minmax(170px, 31%); align-items: center; gap: 24px; }
+.workflow-map { display: grid; gap: 9px; border-left: 1px solid #5a74a9; padding-left: 15px; }
+.map-step { padding: 8px 12px; color: #e6f1ff; background: #182e54; border: 1px solid #355789; border-radius: 8px; font-size: .82rem; }
+.layout { grid-template-columns: minmax(220px, .75fr) minmax(0, 1.6fr); gap: 18px; }
+.secondary, .example { background: #182342; border-color: var(--border); color: #e7edff; }
+.stagebar { background: #0d162b; }
+.dot, .empty-icon { background: #192a50; color: #c5d5ff; border-color: #3f5684; }
+.stage.active .dot, .stage.done .dot { background: #264c99; color: #fff; }
+.workspace { min-height: 320px; }
+.empty { min-height: 255px; }
+.report { color: #e2e8fa; }
+.banner { color: #d5e4ff; background: #1a2b4b; }
+.banner.error { color: #ffe0d9; background: #431f32; border-color: #783952; }
+.source { border-color: var(--border); }
+@media(max-width:960px) { .layout { grid-template-columns: minmax(0, 1fr); } }
+@media(max-width:570px) { .research-hero { grid-template-columns: 1fr; } .stagebar { grid-template-columns: repeat(2, 1fr); } }
+
 </style>
 </head>
 <body>
-<header><div class="brand"><span class="mark" aria-hidden="true">✳</span> Research Studio</div><span class="tag">Multi-agent research assistant</span></header>
-<main class="wrap"><div class="intro"><div><p class="eyebrow" style="margin-bottom:12px">From question to evidence</p><h1>A clearer path through research.</h1><p>Gather sources, review the evidence, and bring your findings together in a report you can keep.</p></div><span id="connection" class="pill">Checking configuration…</span></div>
-<div class="layout"><aside class="panel input-panel"><p class="eyebrow">New research</p><h2>What are you exploring?</h2><form id="research-form"><div class="field"><label for="topic">Research topic</label><textarea id="topic" name="topic" required minlength="3" maxlength="500" placeholder="e.g. How is retrieval augmented generation evaluated?">Retrieval augmented generation evaluation</textarea></div><div class="field"><label for="mode">Research mode</label><select id="mode" name="mode" aria-describedby="mode-hint"><option value="demo">Offline sample · no key needed</option><option value="extractive">Live arXiv · source extracts</option><option value="ai" id="ai-option">AI research team · OpenAI</option></select><p class="hint" id="mode-hint">Explore the full workflow using clearly fictional sample sources. No network request or AI model is used.</p></div><div class="field"><label for="limit">Maximum sources</label><select id="limit" name="limit"><option value="3">3 sources</option><option value="5" selected>5 sources</option><option value="8">8 sources</option></select></div><button class="primary" id="start" type="submit">Start research <span aria-hidden="true">↗</span></button><button class="secondary cancel" id="cancel" type="button" hidden>Cancel research</button><p class="hint" id="form-error" role="alert" hidden></p></form><div class="info"><strong>Evidence stays visible.</strong><br>Every completed report includes source identifiers and the retrieved records. Abstracts are a starting point; check full papers before relying on a conclusion.</div></aside>
-<section class="panel" aria-label="Research workspace"><div class="topbar"><h2>Your research workspace</h2><div class="actions" id="actions" hidden><button class="secondary" id="copy" type="button">Copy report</button><a class="secondary" id="download" href="#" download>Download .md <span aria-hidden="true">↓</span></a></div></div><div class="stagebar" aria-label="Workflow stages"><div class="stage" data-stage="collecting"><span class="dot">1</span>Collect</div><div class="stage" data-stage="summarizing"><span class="dot">2</span>Summarize</div><div class="stage" data-stage="reviewing"><span class="dot">3</span>Review</div><div class="stage" data-stage="writing"><span class="dot">4</span>Write</div></div><div class="workspace" aria-live="polite" aria-busy="false" id="workspace"><div class="empty" id="empty"><div class="empty-icon" aria-hidden="true"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 4h7a3 3 0 0 1 3 3v14a4 4 0 0 0-4-2H4V4Zm16 0h-3a3 3 0 0 0-3 3v14a4 4 0 0 1 4-2h2V4Z"/></svg></div><h3>Your next idea starts here.</h3><p>Choose a topic and a mode. Start with the offline sample to explore the workflow immediately.</p><div class="examples"><button class="example" type="button" data-topic="Retrieval augmented generation evaluation">RAG evaluation</button><button class="example" type="button" data-topic="Language model uncertainty">Model uncertainty</button></div></div><div id="progress" class="empty" hidden><div class="spinner" aria-hidden="true"></div><h3 id="progress-title">Collecting sources…</h3><p id="progress-text">The workflow is running. You can leave this tab open while it works.</p></div><p id="error" class="banner error" role="alert" hidden></p><div id="result" hidden><p class="banner" id="result-mode"></p><p class="status" id="result-meta"></p><pre class="report" id="report"></pre><p class="toast" id="copy-status" role="status"></p></div></div><div class="sources" id="sources" hidden><h3>Source library</h3><div id="source-list"></div></div></section></div><p class="footer">Local research workspace · Download reports to keep them after a restart.</p></main>
+<header class="app-rail"><div class="brand"><span class="brand-symbol" aria-hidden="true">◉</span> ResearchAI</div><nav aria-label="Workspace"><a href="#research-overview">Dashboard</a><a href="#research-form">New research</a><a href="#report-pane">Report</a><a href="#workflow-stages">Workflow</a></nav><span class="status-chip" id="connection" role="status">Checking configuration…</span></header>
+<main class="wrap" id="research-overview">
+  <section class="page-hero research-hero" aria-labelledby="research-title">
+    <div>
+      <h1 id="research-title">Multi-Agent Research Assistant</h1>
+      <p>Review arXiv sources, follow the research stages, and export a cited report.</p>
+    </div>
+    <div class="workflow-map" aria-label="Research workflow">
+      <span class="map-step">Collect sources</span>
+      <span class="map-step">Summarize</span>
+      <span class="map-step">Review findings</span>
+      <span class="map-step">Write report</span>
+    </div>
+  </section>
+<div class="layout"><aside class="panel input-panel"><h2>New research</h2><form id="research-form"><div class="field"><label for="topic">Research topic</label><textarea id="topic" name="topic" required minlength="3" maxlength="500" placeholder="e.g. How is retrieval augmented generation evaluated?">Retrieval augmented generation evaluation</textarea></div><div class="field"><label for="mode">Research mode</label><select id="mode" name="mode" aria-describedby="mode-hint"><option value="demo">Offline sample · no key needed</option><option value="extractive">Live arXiv · source extracts</option><option value="ai" id="ai-option">AI research team · OpenAI</option></select><p class="hint" id="mode-hint">Explore the full workflow using clearly fictional sample sources. No network request or AI model is used.</p></div><div class="field"><label for="limit">Maximum sources</label><select id="limit" name="limit"><option value="3">3 sources</option><option value="5" selected>5 sources</option><option value="8">8 sources</option></select></div><button class="primary" id="start" type="submit">Start research <span aria-hidden="true">↗</span></button><button class="secondary cancel" id="cancel" type="button" hidden>Cancel research</button><p class="hint" id="form-error" role="alert" hidden></p></form><div class="info">Every completed report includes source identifiers and the retrieved records. Abstracts are a starting point; check full papers before relying on a conclusion.</div></aside>
+<section class="panel" id="report-pane" aria-label="Research workspace"><div class="topbar"><h2>Research report</h2><div class="actions" id="actions" hidden><button class="secondary" id="copy" type="button">Copy report</button><a class="secondary" id="download" href="#" download>Download .md <span aria-hidden="true">↓</span></a></div></div><div class="stagebar" id="workflow-stages" aria-label="Workflow stages"><div class="stage" data-stage="collecting"><span class="dot">1</span>Collect</div><div class="stage" data-stage="summarizing"><span class="dot">2</span>Summarize</div><div class="stage" data-stage="reviewing"><span class="dot">3</span>Review</div><div class="stage" data-stage="writing"><span class="dot">4</span>Write</div></div><div class="workspace" aria-live="polite" aria-busy="false" id="workspace"><div class="empty" id="empty"><div class="empty-icon" aria-hidden="true"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 4h7a3 3 0 0 1 3 3v14a4 4 0 0 0-4-2H4V4Zm16 0h-3a3 3 0 0 0-3 3v14a4 4 0 0 1 4-2h2V4Z"/></svg></div><h3>No report yet</h3><p>Choose a topic and a mode. Start with the offline sample to explore the workflow immediately.</p><div class="examples"><button class="example" type="button" data-topic="Retrieval augmented generation evaluation">RAG evaluation</button><button class="example" type="button" data-topic="Language model uncertainty">Model uncertainty</button></div></div><div id="progress" class="empty" hidden><div class="spinner" aria-hidden="true"></div><h3 id="progress-title">Collecting sources…</h3><p id="progress-text">The workflow is running. You can leave this tab open while it works.</p></div><p id="error" class="banner error" role="alert" hidden></p><div id="result" hidden><p class="banner" id="result-mode"></p><p class="status" id="result-meta"></p><pre class="report" id="report"></pre><p class="toast" id="copy-status" role="status"></p></div></div><div class="sources" id="sources" hidden><h3>Source library</h3><div id="source-list"></div></div></section></div><p class="footer">Local research workspace · Download reports to keep them after a restart.</p></main>
 <script>
 const $=id=>document.getElementById(id);let activeJob=null;let timer=null;let report='';
 const hints={demo:'Explore the full workflow using clearly fictional sample sources. No network request or AI model is used.',extractive:'Search live arXiv abstracts and collect them in a cited report. Text is preserved without AI synthesis; no API key is needed.',ai:'Three AutoGen agents research, critique, and write using live arXiv abstracts. Requires the server’s OpenAI API key and incurs provider usage.'};
