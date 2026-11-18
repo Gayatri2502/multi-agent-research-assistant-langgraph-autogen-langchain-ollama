@@ -23,3 +23,7 @@ The review router permits an initial draft plus two revisions. Passing QA pauses
 No model API fee for local mode. Topics still leave the machine for arXiv search. Parallel graph scheduling does not guarantee faster inference: Ollama may serialize requests depending on RAM and server configuration. Three frameworks mean more dependencies, so responsibilities stay narrow and explicit. The evidence gate can reject good drafts or accept unsupported interpretations; it is not an independent fact checker.
 
 The service remains loopback-only, single-process, and ephemeral. Checkpoints, jobs, and pending approvals disappear on restart. Persistent storage, authentication, broad web retrieval, full-paper ingestion, and independent evaluation are future work rather than claimed capabilities.
+
+## Free hosted interface
+
+Vercel builds only `dist/index.html` and static assets. The hosted browser connects explicitly to `http://127.0.0.1:8002`; FastAPI remains local and only accepts configured exact origins. Ollama is accessed by FastAPI, not exposed to the website directly. A ten-second frontend request timeout makes blocked local connections visible. Browsers may require local-network permission or disallow this connection; the same complete UI remains available at localhost. No serverless jobs, public tunnel, paid storage, or cloud model service is provisioned. The target team was verified as Hobby before release.

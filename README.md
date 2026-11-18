@@ -307,6 +307,7 @@ vercel.json              Static deployment settings
 | Slow generation | Start with three sources, close other model workloads, and allow several minutes. Graph concurrency may still be serialized by Ollama. |
 | QA blocks export | Inspect the actual issues and source evidence. The app does not automatically override failed QA. |
 | Report disappears after restart | Expected for the in-memory backend. Run again and download approved results. |
+| Vercel Git deployment is blocked by team configuration | The commit author must be associated with an authorized Vercel Git identity. Use the project owner’s deployment flow or correct your own Git identity. This does not require upgrading to a paid team. |
 | Port 8002 already in use | Use the running instance or stop it from its original terminal before starting another. The hosted interface expects port 8002. |
 
 ## Tests and how to judge the application
