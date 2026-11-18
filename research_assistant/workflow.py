@@ -92,10 +92,10 @@ async def search_arxiv(topic: str, limit: int = 5) -> list[dict]:
                 return [dict(s) for s in sources]
             except (httpx.TimeoutException, httpx.NetworkError):
                 if attempt == 2:
-                    raise ResearchError('arXiv is unreachable. Retry later or choose the offline sample.') from None
+                    raise ResearchError('arXiv is unreachable. Retry later. No substitute sources were generated.') from None
             except httpx.HTTPStatusError as exc:
                 if exc.response.status_code not in (429, 500, 502, 503, 504) or attempt == 2:
-                    raise ResearchError('arXiv is temporarily unavailable. Retry later or choose the offline sample.') from None
+                    raise ResearchError('arXiv is temporarily unavailable. Retry later. No substitute sources were generated.') from None
     return []
 
 

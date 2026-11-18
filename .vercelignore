@@ -1,0 +1,12 @@
+# The deployed interface needs only the source HTML and build configuration.
+.git
+.env
+.env.*
+.venv
+__pycache__
+.pytest_cache
+tests
+reports
+docs
+research_assistant/*.py
+requirements*.txt

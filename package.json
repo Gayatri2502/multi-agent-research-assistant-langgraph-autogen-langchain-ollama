@@ -1,0 +1,8 @@
+{
+  "name": "research-studio",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Multi-Agent Research Assistant | LangGraph · AutoGen · LangChain · Ollama",
+  "scripts": {"build": "node scripts/build-static.mjs"},
+  "engines": {"node": ">=22"}
+}

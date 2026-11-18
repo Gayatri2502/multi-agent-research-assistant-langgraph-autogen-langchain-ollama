@@ -1,235 +1,85 @@
 <!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="color-scheme" content="light"><title>Research Studio</title>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Research Studio</title><meta name="color-scheme" content="light">
 <style>
-:root{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#1b2b36;background:#f5f6f2;font-synthesis:none;--green:#165b49;--muted:#63716f;--line:#dce2dc}*{box-sizing:border-box}body{margin:0}button,input,textarea,select{font:inherit}a{color:var(--green)}button,a,input,textarea,select{outline-offset:4px}button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid #cfaa5b}button{cursor:pointer}button:disabled{cursor:wait;opacity:.6}header{border-bottom:1px solid var(--line);background:#fff;padding:19px 5vw;display:flex;align-items:center;justify-content:space-between}.brand{font-weight:750;letter-spacing:-.6px;font-size:20px;display:flex;align-items:center;gap:12px}.mark{width:34px;height:34px;background:var(--green);border-radius:10px;display:grid;place-items:center;color:#fff}.tag{font-size:11px;color:var(--muted);letter-spacing:1px;text-transform:uppercase}.wrap{max-width:1300px;padding:45px 5vw;margin:auto}.intro{display:flex;gap:35px;justify-content:space-between;align-items:center;margin-bottom:32px}h1{font-size:clamp(28px,4vw,40px);line-height:1.15;margin:0 0 12px;letter-spacing:-1.5px}.intro p{color:var(--muted);margin:0;max-width:630px;line-height:1.6}.pill{padding:8px 12px;border:1px solid var(--line);background:#fff;border-radius:30px;font-size:12px;white-space:nowrap}.layout{display:grid;grid-template-columns:340px minmax(0,1fr);gap:24px;align-items:start}.panel{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden}.input-panel{padding:24px}.eyebrow{font-size:11px;font-weight:750;color:var(--green);text-transform:uppercase;letter-spacing:1.3px;margin:0 0 20px}.input-panel h2{font-size:21px;letter-spacing:-.5px;margin:0 0 22px}label{display:block;font-size:13px;font-weight:650;margin-bottom:8px}textarea,select,input{border:1px solid #cad5cd;background:#fcfdfb;color:inherit;padding:12px;border-radius:8px;width:100%}textarea{min-height:132px;resize:vertical;line-height:1.5}select{margin-top:0}.field{margin-bottom:20px}.hint{font-size:12px;line-height:1.55;color:var(--muted);margin:8px 0 0}.primary{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;border:0;border-radius:8px;background:var(--green);color:white;padding:13px 18px;font-weight:650}.secondary{border:1px solid #cfd8d0;border-radius:7px;background:white;color:#284c3f;padding:9px 12px;font-size:12px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:6px}.secondary:hover{background:#f0f5ef}.cancel{width:100%;margin-top:10px;justify-content:center}.info{margin-top:24px;border-top:1px solid var(--line);padding-top:19px;font-size:12px;line-height:1.65;color:var(--muted)}.topbar{padding:20px 24px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:12px}.topbar h2{font-size:15px;margin:0;font-weight:700}.actions{display:flex;gap:8px;flex-wrap:wrap}.stagebar{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:22px 24px;background:#fbfcf9;border-bottom:1px solid var(--line)}.stage{font-size:11px;color:var(--muted);display:flex;align-items:center;gap:7px}.dot{width:20px;height:20px;border-radius:50%;border:1px solid #cfd6cd;display:grid;place-items:center;background:white;flex-shrink:0;font-size:10px}.stage.active{color:var(--green);font-weight:700}.stage.active .dot{border-color:var(--green);background:#e5f1e9}.stage.done .dot{color:#fff;background:var(--green);border-color:var(--green)}.workspace{min-height:440px;padding:28px}.empty{text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:370px}.empty-icon{width:72px;height:72px;display:grid;place-items:center;background:#edf3ed;border-radius:20px;color:var(--green);margin-bottom:21px}.empty h3{font-size:19px;margin:0 0 10px;letter-spacing:-.4px}.empty p{max-width:380px;font-size:13px;line-height:1.7;color:var(--muted);margin:0}.examples{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:25px}.example{border:1px solid #dce3d8;border-radius:20px;background:white;padding:8px 12px;color:#4f6458;font-size:11px}.example:hover{background:#f0f4ed}.banner{padding:12px 15px;border-radius:8px;font-size:12px;line-height:1.6;background:#edf4ed;color:#315744;margin-bottom:20px}.error{background:#fff0eb;color:#8b3e29;border:1px solid #f3d4c6}.status{font-size:12px;color:var(--muted);margin:0 0 18px;line-height:1.6}.report{white-space:pre-wrap;overflow-wrap:anywhere;font-family:inherit;font-size:14px;line-height:1.85;margin:0;color:#2a3d44}.sources{border-top:1px solid var(--line);padding:24px}.sources h3{font-size:13px;margin:0 0 15px}.source{padding:14px 0;border-bottom:1px solid #e9ece7}.source:last-child{border-bottom:none;padding-bottom:0}.source a,.source strong{font-size:13px;font-weight:650;line-height:1.55}.source p{font-size:12px;line-height:1.7;color:var(--muted);margin:8px 0 0}.source summary{cursor:pointer;font-size:12px;color:var(--green);margin-top:8px}.footer{margin-top:25px;font-size:11px;color:#7a867f;text-align:center}.toast{font-size:12px;color:var(--green);margin-top:10px}.spinner{width:32px;height:32px;border-radius:50%;border:3px solid #d9e4d9;border-top-color:var(--green);animation:spin 1s linear infinite;margin:0 auto 20px}@keyframes spin{to{transform:rotate(360deg)}}[hidden]{display:none!important}@media(prefers-reduced-motion:reduce){.spinner{animation:none}}@media(max-width:850px){.layout{grid-template-columns:1fr}.intro{display:block}.intro .pill{display:inline-block;margin-top:20px}.input-panel{padding:20px}.wrap{padding-top:30px}.workspace{padding:22px}.stagebar{padding:18px 14px}.topbar{padding:18px}.stage{font-size:10px;gap:4px}.dot{width:17px;height:17px}.brand{font-size:17px}.tag{font-size:9px}.empty{min-height:280px}}
+:root{font:14px/1.6 system-ui,-apple-system,sans-serif;color:#202020;background:#fafafa;--line:#dedede;--muted:#666666}*{box-sizing:border-box}body{margin:0}button,input,textarea,select{font:inherit;color:inherit}button,a,textarea,select{outline-offset:4px}button:focus-visible,a:focus-visible,textarea:focus-visible,select:focus-visible,summary:focus-visible{outline:2px solid #222}button{cursor:pointer}button:disabled{opacity:.5;cursor:not-allowed}a{color:inherit;text-underline-offset:3px}header{border-bottom:1px solid var(--line);padding:15px max(24px,calc((100% - 1240px)/2));display:flex;justify-content:space-between;align-items:center;background:#fff}.brand{font-size:17px;font-weight:750;letter-spacing:-.5px}.status{font-size:12px;color:var(--muted)}main{max-width:1288px;margin:auto;padding:30px 24px}h1{font-size:29px;letter-spacing:-1px;line-height:1.2;margin:0 0 10px}h2{font-size:16px;margin:0 0 14px}h3{font-size:15px;margin:20px 0 8px}p{margin:8px 0}.lead{color:var(--muted);max-width:72ch}.intro{margin-bottom:24px}.layout{display:grid;grid-template-columns:310px minmax(0,1fr);gap:22px;align-items:start}.panel{border:1px solid var(--line);border-radius:10px;background:#fff;padding:20px;min-width:0}label{display:block;font-weight:600;font-size:12px;margin-bottom:7px}textarea,select{width:100%;padding:11px;border:1px solid #cfcfcf;border-radius:6px;background:#fff}textarea{min-height:110px;resize:vertical}.field{margin-bottom:18px}.hint{font-size:12px;line-height:1.6;color:var(--muted)}button,.button{border:1px solid #c9c9c9;background:#fff;border-radius:6px;min-height:40px;padding:9px 13px;display:inline-flex;align-items:center;justify-content:center;text-decoration:none;font-size:12px}button:hover:enabled,.button:hover{background:#efefef}.primary{background:#202020;color:white;border-color:#202020}.primary:hover:enabled{background:#404040}.full{width:100%}.row{display:flex;align-items:center;gap:9px;flex-wrap:wrap}.between{justify-content:space-between}.divider{border-top:1px solid var(--line);padding-top:14px;margin-top:18px}details{font-size:12px}summary{cursor:pointer;font-weight:600}.workflow{display:flex;gap:6px;flex-wrap:wrap;padding:15px 0;border-bottom:1px solid var(--line);margin-bottom:18px}.step{font-size:11px;color:var(--muted);border:1px solid var(--line);border-radius:5px;padding:5px 8px}.step.active{background:#222;color:#fff}.step.done{background:#efefef;color:#222}.notice{font-size:12px;border-left:3px solid #555;background:#f4f4f4;padding:11px 13px;margin:12px 0}.empty{min-height:230px;display:grid;place-content:center;text-align:center;color:var(--muted)}.empty h2{color:#202020}.report{font-size:14px;line-height:1.85;overflow-wrap:anywhere}.report h2{font-size:17px;margin-top:26px}.report h3{font-size:15px}.report p{margin:12px 0}.report li{margin:5px 0}.report .citation{font-size:11px;padding:1px 4px;background:#f0f0f0;border-radius:3px}.evidence{margin-top:22px;border-top:1px solid var(--line);padding-top:18px}.source{padding:13px 0;border-bottom:1px solid #e8e8e8;scroll-margin-top:20px}.source:target{background:#f2f2f2}.source a{font-weight:650;font-size:13px}.source blockquote{margin:10px 0;padding:10px 13px;background:#f5f5f5;border-left:3px solid #aaaaaa}.source p{font-size:12px}.log{padding-left:20px;font-size:12px;color:var(--muted);max-height:210px;overflow:auto}.log li{margin:5px 0}.audit{margin-top:16px}.spinner{display:inline-block;width:12px;height:12px;border:2px solid #bbb;border-top-color:#222;border-radius:50%;animation:spin 1s linear infinite;margin-right:7px}@keyframes spin{to{transform:rotate(360deg)}}.fade{animation:appear .2s ease-out}@keyframes appear{from{opacity:0;transform:translateY(3px)}to{opacity:1;transform:none}}[hidden]{display:none!important}.skip{position:absolute;top:-50px}.skip:focus{top:0;background:white;padding:10px}footer{font-size:11px;color:var(--muted);margin-top:20px}.architecture{margin-top:20px}.architecture p{margin:8px 0}.architecture code{white-space:normal}#approval{margin:18px 0;padding:16px;background:#f3f3f3;border:1px solid var(--line);border-radius:6px}#approval p{font-size:12px}#copy-status{font-size:12px}#setup{font-size:12px}.tag{font-size:11px;border:1px solid var(--line);border-radius:4px;padding:2px 6px}#history{margin-top:14px}.error{border-left-color:#222}mark{background:#e5e5e5;color:#222}@media(max-width:850px){.layout{grid-template-columns:1fr}main{padding:20px 16px}header{padding:14px 16px;gap:15px}h1{font-size:25px}textarea,select{font-size:16px}}@media(prefers-reduced-motion:reduce){.spinner,.fade{animation:none}}
 
-:root {
-  color-scheme: dark;
-  font-family: system-ui, sans-serif;
-  --ink: #eef2ff;
-  --muted: #aab7d6;
-  --border: #293753;
-  --panel: #111b32;
-  --field: #0b1327;
-  --accent: #6552ee;
-  background: #080f20;
-  color: var(--ink);
-}
-body { margin: 0; min-height: 100vh; background: #080f20; color: var(--ink); }
-h1, h2, h3 { color: var(--ink); text-wrap: balance; }
-p, .small, .hint, .info, .status { color: var(--muted); }
-a { color: #c1d2ff; text-underline-offset: 4px; }
-button, input, select, textarea { font: inherit; }
-button, input, select, textarea, nav a, .download { min-height: 44px; }
-button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visible,
-select:focus-visible, summary:focus-visible { outline: 2px solid #bfb6ff; outline-offset: 3px; }
-input, select, textarea { background: var(--field); color: var(--ink); border: 1px solid #3b4b70; }
-input::placeholder, textarea::placeholder { color: #a5afd0; }
-button:hover, .secondary:hover { filter: brightness(1.17); }
-button.primary, .primary, #generate, .download {
-  color: white; background: var(--accent); border: 1px solid transparent;
-}
-header.app-rail {
-  position: fixed; inset: 0 auto 0 0; z-index: 2; width: 198px;
-  display: flex; flex-direction: column; align-items: stretch; justify-content: flex-start;
-  gap: 24px; padding: 28px 17px; background: #080e1d; border: 0;
-  border-right: 1px solid var(--border); overflow-y: auto;
-}
-.app-rail .brand { font: 650 19px/1.2 system-ui, sans-serif; letter-spacing: -.35px; }
-.brand-symbol { color: #a8abff; margin-right: 4px; }
-.app-rail nav { display: grid; gap: 7px; }
-.app-rail nav a { display: flex; align-items: center; padding: 0 12px; border-radius: 8px; text-decoration: none; font-size: .88rem; }
-.app-rail nav a:first-child, .app-rail nav a:hover { background: #1b2750; color: #fff; }
-.app-rail .badge, .app-rail .status-chip {
-  margin-top: auto; padding: 10px; border: 1px solid var(--border); border-radius: 8px;
-  color: var(--muted); background: #10192f; font-size: .75rem; letter-spacing: 0; text-transform: none;
-  overflow-wrap: anywhere;
-}
-main.shell, main.wrap { max-width: 1600px; margin: 0 0 0 198px; padding: 30px clamp(20px, 4vw, 58px) 42px; }
-.page-hero {
-  position: relative; isolation: isolate; overflow: hidden; padding: clamp(25px, 5vw, 56px);
-  border: 1px solid var(--border); border-radius: 20px; margin: 0 0 22px;
-  background: radial-gradient(ellipse at 92% 14%, #283b78 0, #152448 47%, #111b32 77%);
-}
-.page-hero h1 { max-width: 18ch; margin: 0 0 12px; font: 700 clamp(2rem, 4.1vw, 4rem)/1.06 system-ui, sans-serif; letter-spacing: -.045em; }
-.page-hero p { max-width: 40ch; margin: 0; color: #d0d9f1; }
-.panel, .preview, form { min-width: 0; }
-.panel { background: var(--panel); border-color: var(--border); }
-footer { color: var(--muted); }
-[hidden] { display: none !important; }
-:where(section, div, form)[id] { scroll-margin-top: 16px; }
-@media (max-width: 760px) {
-  header.app-rail { position: static; width: auto; gap: 10px; padding: 14px 17px; border: 0; border-bottom: 1px solid var(--border); }
-  .app-rail nav { display: flex; gap: 4px; flex-wrap: wrap; }
-  .app-rail .badge, .app-rail .status-chip { margin: 0; align-self: flex-start; }
-  main.shell, main.wrap { margin: 0; padding: 16px 14px 28px; }
-  .page-hero { border-radius: 13px; min-height: 0; }
-}
+/* Monochrome interface with neutral gray evidence and status surfaces. */
+:root{--teal:#252525;--sage:#333333;--amber:#444444;background:#fafafa;--line:#dedede;--muted:#666666}
+.brand,.intro h1{color:#202020}header .status{color:#444;background:#f3f3f3;border:1px solid #dedede;padding:5px 10px;border-radius:20px}
+.intro{border-left:3px solid #c9c9c9;padding-left:17px}aside.panel{background:#fafafa;border-color:#dedede}
+.primary{background:#202020;border-color:#202020}.primary:hover:enabled{background:#404040}
+.step.active{background:#222;border-color:#222;color:#fff}.step.done{background:#ededed;border-color:#d4d4d4;color:#333}
+.notice{background:#f3f3f3;border-color:#777;color:#333}#approval{background:#f3f3f3;border-color:#d4d4d4}#approval strong{color:#222}
+.audit{border-left:3px solid #999;background:#f7f7f7;padding:1px 14px 10px}.audit h3{color:#333}
+.report .citation{color:#222;background:#ededed}.source a{color:#222}.source:target{background:#f0f0f0}
+.source blockquote{background:#f3f3f3;border-left-color:#999}mark{background:#ddd;color:#222}
+body[data-state="needs_review"] #message,body[data-state="failed"] #message,body[data-state="completed"] #message{background:#f3f3f3;color:#333;border-color:#777}
 
-:root { --green: #9eb9ff; --line: var(--border); }
-.research-hero { display: grid; grid-template-columns: 1fr minmax(170px, 31%); align-items: center; gap: 24px; }
-.workflow-map { display: grid; gap: 9px; border-left: 1px solid #5a74a9; padding-left: 15px; }
-.map-step { padding: 8px 12px; color: #e6f1ff; background: #182e54; border: 1px solid #355789; border-radius: 8px; font-size: .82rem; }
-.layout { grid-template-columns: minmax(220px, .75fr) minmax(0, 1.6fr); gap: 18px; }
-.secondary, .example { background: #182342; border-color: var(--border); color: #e7edff; }
-.stagebar { background: #0d162b; }
-.dot, .empty-icon { background: #192a50; color: #c5d5ff; border-color: #3f5684; }
-.stage.active .dot, .stage.done .dot { background: #264c99; color: #fff; }
-.workspace { min-height: 320px; }
-.empty { min-height: 255px; }
-.report { color: #e2e8fa; }
-.banner { color: #d5e4ff; background: #1a2b4b; }
-.banner.error { color: #ffe0d9; background: #431f32; border-color: #783952; }
-.source { border-color: var(--border); }
-@media(max-width:960px) { .layout { grid-template-columns: minmax(0, 1fr); } }
-@media(max-width:570px) { .research-hero { grid-template-columns: 1fr; } .stagebar { grid-template-columns: repeat(2, 1fr); } }
-
-
-body { font-size: 14px; }
-h1, .page-hero h1 { font-size: clamp(1.55rem, 2.7vw, 2.25rem); letter-spacing: -.028em; }
-h2 { font-size: 1.05rem; }
-h3 { font-size: .95rem; }
-.app-rail .brand { font-size: 16px; }
-.page-hero { padding: clamp(18px, 3vw, 32px); min-height: 0; margin-bottom: 16px; }
-.page-hero p { font-size: .88rem; max-width: 58ch; }
-main.shell, main.wrap { padding-top: clamp(14px, 2vw, 26px); }
-.panel, form, .preview { padding: 16px; }
-textarea, input, select { font-size: .9rem; }
-button, .primary, .secondary { font-size: .875rem; }
-.guide { margin: 0 0 16px; display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 12px; }
-.guide div { padding: 11px 13px; border: 1px solid var(--border); border-radius: 8px; background: #101a2e; }
-.guide strong { display: block; margin-bottom: 3px; font-size: .85rem; }
-.guide p { margin: 0; font-size: .8rem; line-height: 1.5; }
-.tool-row { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
-.tool-row button { min-height: 36px; padding: 6px 10px; background: #182544; color: #eef2ff; border: 1px solid #3b4b70; border-radius: 6px; }
-.inline-status { min-height: 1.3em; margin: .35em 0; font-size: .8rem; color: #cfdaff; }
-.skip-link { position: fixed; top: -60px; left: 10px; z-index: 10; padding: 10px; background: #202f65; color: white; }
-.skip-link:focus { top: 10px; }
-@media(max-width: 590px) {
-  .guide { grid-template-columns: 1fr; gap: 6px; }
-  .guide div { padding: 8px 10px; }
-  textarea, input, select { font-size: 16px; }
-}
-
-.research-hero h1 { max-width: 26ch; }
-.workflow-map { grid-template-columns: 1fr 1fr; min-width: 0; }
-.map-step { font-size: .75rem; padding: 6px 8px; }
-.workspace { min-height: 248px; padding: 18px; }
-.empty { min-height: 170px; }
-.empty-icon { width: 42px; height: 42px; border-radius: 10px; margin-bottom: 10px; }
-.empty-icon svg { width: 23px; height: 23px; }
-#topic { min-height: 85px; }
-#recent-reports { margin-top: 16px; }
-#recent-reports select { margin-bottom: 6px; }
-.research-report h3 { margin: 1em 0 .35em; }
-.research-report p, .research-report ul { margin: .6em 0; }
-.research-report p, .research-report li { color: #dae3f8; }
-.research-report ul { padding-left: 1.25em; }
-@media(max-width:1060px) { .research-hero { grid-template-columns: minmax(0,1fr); } .workflow-map { border-left: 0; padding-left: 0; } }
-
-</style>
-</head>
-<body><a class="skip-link" href="#research-form">Skip to workspace</a>
-<header class="app-rail"><div class="brand"><span class="brand-symbol" aria-hidden="true">◉</span> ResearchAI</div><nav aria-label="Workspace"><a href="#research-overview">Dashboard</a><a href="#research-form">New research</a><a href="#report-pane">Report</a><a href="#workflow-stages">Workflow</a></nav><span class="status-chip" id="connection" role="status">Checking configuration…</span></header>
-<main class="wrap" id="research-overview">
-  <section class="page-hero research-hero" aria-labelledby="research-title">
-    <div>
-      <h1 id="research-title">Multi-Agent Research Assistant</h1>
-      <p>Review arXiv sources, follow the research stages, and export a cited report.</p>
-    </div>
-    <div class="workflow-map" aria-label="Research workflow">
-      <span class="map-step">Collect sources</span>
-      <span class="map-step">Summarize</span>
-      <span class="map-step">Review findings</span>
-      <span class="map-step">Write report</span>
-    </div>
-  </section>
-<section class="guide" aria-label="How it works"><div><strong>Choose the evidence</strong><p>Use fictional sample data to try the workflow, or use live arXiv to find real paper abstracts.</p></div><div><strong>Choose how to analyze it</strong><p>Extractive mode organizes abstracts. Agent mode uses OpenAI to review and synthesize them and requires a configured key.</p></div><div><strong>Check and keep the report</strong><p>Open the cited abstracts before relying on a claim. Download Markdown or reopen recent results in this tab.</p></div></section>
-<div class="layout"><aside class="panel input-panel"><h2>New research</h2><form id="research-form"><div class="field"><label for="topic">Research topic</label><textarea id="topic" name="topic" required minlength="3" maxlength="500" placeholder="e.g. How is retrieval augmented generation evaluated?">Retrieval augmented generation evaluation</textarea></div><div class="field"><label for="mode">Research mode</label><select id="mode" name="mode" aria-describedby="mode-hint"><option value="demo">Offline sample · no key needed</option><option value="extractive">Live arXiv · source extracts</option><option value="ai" id="ai-option">AI research team · OpenAI</option></select><p class="hint" id="mode-hint">Explore the full workflow using clearly fictional sample sources. No network request or AI model is used.</p></div><div class="field"><label for="limit">Maximum sources</label><select id="limit" name="limit"><option value="3">3 sources</option><option value="5" selected>5 sources</option><option value="8">8 sources</option></select></div><button class="primary" id="start" type="submit">Start research <span aria-hidden="true">↗</span></button><button class="secondary cancel" id="cancel" type="button" hidden>Cancel research</button><p class="hint" id="form-error" role="alert" hidden></p></form><section id="recent-reports" hidden>
-  <label for="saved-report">Recent reports in this tab</label>
-  <select id="saved-report"></select>
-  <button type="button" class="secondary" id="open-report">Open saved report</button>
-</section><div class="info">Every completed report includes source identifiers and the retrieved records. Abstracts are a starting point; check full papers before relying on a conclusion.</div></aside>
-<section class="panel" id="report-pane" aria-label="Research workspace"><div class="topbar"><h2>Research report</h2><div class="actions" id="actions" hidden><button class="secondary" id="copy" type="button">Copy report</button><a class="secondary" id="download" href="#" download>Download .md <span aria-hidden="true">↓</span></a></div></div><div class="stagebar" id="workflow-stages" aria-label="Workflow stages"><div class="stage" data-stage="collecting"><span class="dot">1</span>Collect</div><div class="stage" data-stage="summarizing"><span class="dot">2</span>Summarize</div><div class="stage" data-stage="reviewing"><span class="dot">3</span>Review</div><div class="stage" data-stage="writing"><span class="dot">4</span>Write</div></div><div class="workspace" aria-live="polite" aria-busy="false" id="workspace"><div class="empty" id="empty"><div class="empty-icon" aria-hidden="true"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 4h7a3 3 0 0 1 3 3v14a4 4 0 0 0-4-2H4V4Zm16 0h-3a3 3 0 0 0-3 3v14a4 4 0 0 1 4-2h2V4Z"/></svg></div><h3>No report yet</h3><p>Choose a topic and a mode. Start with the offline sample to explore the workflow immediately.</p><div class="examples"><button class="example" type="button" data-topic="Retrieval augmented generation evaluation">RAG evaluation</button><button class="example" type="button" data-topic="Language model uncertainty">Model uncertainty</button></div></div><div id="progress" class="empty" hidden><div class="spinner" aria-hidden="true"></div><h3 id="progress-title">Collecting sources…</h3><p id="progress-text">The workflow is running. You can leave this tab open while it works.</p></div><p id="error" class="banner error" role="alert" hidden></p><div id="result" hidden><p class="banner" id="result-mode"></p><p class="status" id="result-meta"></p><article class="report research-report" id="report" aria-label="Report text"></article><p class="toast" id="copy-status" role="status"></p></div></div><div class="sources" id="sources" hidden><h3>Source library</h3><div id="source-list"></div></div></section></div><p class="footer">Local research workspace · Download reports to keep them after a restart.</p></main>
+.workspace-column{display:grid;gap:18px;min-width:0}.flow-panel{padding:18px}.flow-panel h2{margin-bottom:3px}.flow-scroll{overflow-x:auto;margin:14px 0 8px}.flow-svg{width:100%;min-width:680px;height:auto;display:block}.flow-svg text{font-family:system-ui,sans-serif}.flow-edge{fill:none;stroke:#bcbcbc;stroke-width:1.5;marker-end:url(#flow-arrow)}.flow-edge.live{stroke:#222;stroke-dasharray:5 5;animation:flow-dash 1s linear infinite}.flow-node{cursor:pointer;outline:none}.flow-node rect{fill:#fff;stroke:#ccc;stroke-width:1.3;transition:fill .2s,stroke .2s}.flow-node text{fill:#303030;font-size:13px;font-weight:650}.flow-node .node-state{font-size:11px;font-weight:400;fill:#777}.flow-node[data-state="running"] rect{fill:#222;stroke:#222}.flow-node[data-state="running"] text{fill:white}.flow-node[data-state="done"] rect{fill:#ededed;stroke:#888}.flow-node[data-state="blocked"] rect{fill:#e5e5e5;stroke:#222;stroke-dasharray:4 3}.flow-node[aria-pressed="true"] rect,.flow-node:focus-visible rect{stroke:#111;stroke-width:2.6}.flow-label{fill:#777;font-size:11px}.flow-label.small{font-size:10px}.flow-legend{display:flex;gap:14px;flex-wrap:wrap;font-size:11px;color:#666}.flow-legend span::before{content:'';display:inline-block;width:8px;height:8px;margin-right:5px;border:1px solid #aaa;background:white}.flow-legend .current::before{background:#222;border-color:#222}.flow-legend .finished::before{background:#ddd}.flow-now{margin-top:14px;background:#f5f5f5;border-radius:5px;padding:10px 12px;font-size:12px}.flow-now strong{display:block;margin-bottom:3px}.flow-inspect{font-size:12px;margin-top:10px;color:#666;min-height:38px}@keyframes flow-dash{to{stroke-dashoffset:-20}}@media(prefers-reduced-motion:reduce){.flow-edge.live{animation:none}.flow-node rect{transition:none}}
+</style></head><body><a class="skip" href="#topic">Skip to research</a>
+<header><span class="brand">◉ Research Studio</span><span id="connection" class="status" role="status">Checking local model…</span></header>
+<main><div class="intro"><h1>Multi-Agent Research Assistant | LangGraph · AutoGen · LangChain · Ollama</h1><p class="lead">Research papers, compare findings, and review a cited report. A local team does the drafting; you make the final call.</p></div>
+<div class="layout"><aside class="panel"><h2>New research</h2><form id="research-form"><div class="field"><label for="topic">What do you want to investigate?</label><textarea id="topic" required minlength="3" maxlength="500" placeholder="e.g. Retrieval augmented generation evaluation">Retrieval augmented generation evaluation</textarea></div><div class="field"><label for="mode">How to prepare the report</label><select id="mode" aria-describedby="mode-hint"><option value="extractive">Collect paper abstracts</option></select><p id="mode-hint" class="hint">Real arXiv sources organized without an AI model.</p></div><div class="field"><label for="limit">Maximum papers</label><select id="limit"><option value="3" selected>3 papers · faster</option><option value="5">5 papers</option><option value="8">8 papers · broader</option></select></div><button class="primary full" id="start" type="submit">Start research</button><button class="full" id="cancel" type="button" hidden>Cancel research</button></form><div id="setup" class="divider"><p id="setup-message"></p><button id="refresh" type="button">Check model setup</button></div><div id="history" hidden><label for="saved">Reports in this tab</label><select id="saved"></select><button id="open-saved">Open report</button></div><details class="architecture divider"><summary>How this team works</summary><p><strong>LangGraph</strong> retrieves sources, runs two branches, joins their results, limits revisions, and pauses for approval.</p><p><strong>AutoGen</strong> provides the researcher, benchmark analyst, and writer agents, using local Ollama.</p><p><strong>LangChain/Ollama</strong> audits the draft against the original abstracts with structured findings and exact supporting quotes.</p><p>Collect → [Researcher + Analyst] → Writer → QA → Your approval. QA can request two revisions. An unresolved draft cannot be approved or exported.</p></details><details class="divider"><summary>What are the sources?</summary><p>arXiv hosts research papers and preprints. We search it when you submit a topic and read the abstracts, not full papers. A listing does not guarantee peer review. No results means no report; the team does not invent replacement evidence.</p></details></aside>
+<div class="workspace-column"><section class="panel flow-panel" aria-labelledby="flow-title"><h2 id="flow-title">Live research workflow</h2><p class="hint" id="flow-caption">Two specialists work in parallel, then the draft passes through evidence review and your approval.</p><div class="flow-scroll"><svg id="local-flow" class="flow-svg" viewBox="0 0 1040 335" role="group" aria-label="Local multi-agent workflow"><defs><marker id="flow-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0L10 5L0 10" fill="#777"/></marker></defs><path class="flow-edge" data-edge="collect" d="M3 169H18"/><path class="flow-edge" data-edge="research" d="M145 169H165V87H188"/><path class="flow-edge" data-edge="analyst" d="M145 169H165V247H188"/><path class="flow-edge" data-edge="writer" d="M335 87H362V169H388 M335 247H362V169"/><path class="flow-edge" data-edge="qa" d="M515 169H558"/><path class="flow-edge" data-edge="approval" d="M685 169H728"/><path class="flow-edge" data-edge="export" d="M870 169H908"/><path class="flow-edge" id="revision-edge" d="M622 201V300H452V203"/><text class="flow-label" x="480" y="319">QA fails → revise · up to 2 retries</text><path fill="none" stroke="#ddd" d="M205 22H855"/><text class="flow-label" x="365" y="15">LangGraph shared state · sources, notes, draft, evidence</text><text class="flow-label small" x="164" y="39">PARALLEL BRANCHES</text><text class="flow-label small" x="353" y="124">JOIN</text><text class="flow-label small" x="695" y="125">PASS</text><g class="flow-node" id="node-collect" data-node="collect" data-state="waiting" role="button" tabindex="0" aria-label="Collect sources: waiting" aria-pressed="false"><rect x="20" y="137" width="125" height="64" rx="7"/><text x="82.5" y="159" text-anchor="middle">Collect sources</text><text class="node-state" id="state-collect" x="82.5" y="180" text-anchor="middle">Waiting</text></g><g class="flow-node" id="node-research" data-node="research" data-state="waiting" role="button" tabindex="0" aria-label="Research agent: waiting" aria-pressed="false"><rect x="190" y="55" width="145" height="64" rx="7"/><text x="262.5" y="77" text-anchor="middle">Research agent</text><text class="node-state" id="state-research" x="262.5" y="98" text-anchor="middle">Waiting</text></g><g class="flow-node" id="node-analyst" data-node="analyst" data-state="waiting" role="button" tabindex="0" aria-label="Benchmark analyst: waiting" aria-pressed="false"><rect x="190" y="215" width="145" height="64" rx="7"/><text x="262.5" y="237" text-anchor="middle">Benchmark analyst</text><text class="node-state" id="state-analyst" x="262.5" y="258" text-anchor="middle">Waiting</text></g><g class="flow-node" id="node-writer" data-node="writer" data-state="waiting" role="button" tabindex="0" aria-label="Writer agent: waiting" aria-pressed="false"><rect x="390" y="137" width="125" height="64" rx="7"/><text x="452.5" y="159" text-anchor="middle">Writer agent</text><text class="node-state" id="state-writer" x="452.5" y="180" text-anchor="middle">Waiting</text></g><g class="flow-node" id="node-qa" data-node="qa" data-state="waiting" role="button" tabindex="0" aria-label="Evidence QA: waiting" aria-pressed="false"><rect x="560" y="137" width="125" height="64" rx="7"/><text x="622.5" y="159" text-anchor="middle">Evidence QA</text><text class="node-state" id="state-qa" x="622.5" y="180" text-anchor="middle">Waiting</text></g><g class="flow-node" id="node-approval" data-node="approval" data-state="waiting" role="button" tabindex="0" aria-label="Your approval: waiting" aria-pressed="false"><rect x="730" y="137" width="140" height="64" rx="7"/><text x="800.0" y="159" text-anchor="middle">Your approval</text><text class="node-state" id="state-approval" x="800.0" y="180" text-anchor="middle">Waiting</text></g><g class="flow-node" id="node-export" data-node="export" data-state="waiting" role="button" tabindex="0" aria-label="Final report: waiting" aria-pressed="false"><rect x="910" y="137" width="110" height="64" rx="7"/><text x="965.0" y="159" text-anchor="middle">Final report</text><text class="node-state" id="state-export" x="965.0" y="180" text-anchor="middle">Waiting</text></g></svg><svg id="simple-flow" class="flow-svg" viewBox="0 0 860 150" role="group" aria-label="Paper workflow" hidden><g id="simple-0" class="flow-node" data-state="waiting"><rect x="15" y="32" width="175" height="64" rx="7"/><text x="102" y="59" text-anchor="middle">Collect abstracts</text><text class="node-state" id="simple-state-0" x="102" y="80" text-anchor="middle">Waiting</text></g><path class="flow-edge" d="M190 65H227"/><g id="simple-1" class="flow-node" data-state="waiting"><rect x="230" y="32" width="175" height="64" rx="7"/><text x="317" y="59" text-anchor="middle">Organize sources</text><text class="node-state" id="simple-state-1" x="317" y="80" text-anchor="middle">Waiting</text></g><path class="flow-edge" d="M405 65H442"/><g id="simple-2" class="flow-node" data-state="waiting"><rect x="445" y="32" width="175" height="64" rx="7"/><text x="532" y="59" text-anchor="middle">Review limitations</text><text class="node-state" id="simple-state-2" x="532" y="80" text-anchor="middle">Waiting</text></g><path class="flow-edge" d="M620 65H657"/><g id="simple-3" class="flow-node" data-state="waiting"><rect x="660" y="32" width="175" height="64" rx="7"/><text x="747" y="59" text-anchor="middle">Write report</text><text class="node-state" id="simple-state-3" x="747" y="80" text-anchor="middle">Waiting</text></g></svg></div><div class="flow-legend"><span>Waiting</span><span class="current">Current step</span><span class="finished">Completed</span></div><div class="flow-now" role="status" aria-live="polite"><strong id="flow-status">Ready to begin</strong><span id="flow-description">Start research to watch the real workflow progress. Select a node to understand its role.</span></div><p id="flow-inspect" class="flow-inspect">Select any stage in the diagram for its purpose and current state.</p></section><section class="panel" aria-label="Research workspace"><div class="row between"><h2 id="report-title">Research workspace</h2><div id="actions" class="row" hidden><button id="copy">Copy report</button><a id="download" class="button primary" download>Download Markdown</a></div></div><p id="message" class="notice" role="status" hidden></p><div id="empty" class="empty"><h2>A brief you can inspect.</h2><p>Choose a topic, run the team, and follow the evidence.<br>Local inference may take several minutes.</p></div><section id="trace" hidden><details open><summary>Activity log · actual workflow events</summary><ol id="events" class="log"></ol></details></section><div id="approval" hidden><strong>The draft is ready for your review.</strong><p>QA checked the draft and matched supporting quotes. This is an automated review, not a guarantee of factual correctness. Inspect the sources before approving.</p><div class="row"><button id="approve" class="primary">Approve & enable export</button><button id="reject">Reject draft</button></div></div><details id="agent-notes" class="divider" hidden><summary>Inspect specialist outputs</summary><h3>Researcher notes</h3><p id="research-notes" style="white-space:pre-wrap"></p><h3>Benchmark analyst</h3><p id="analysis-notes" style="white-space:pre-wrap"></p></details><section id="qa" class="audit" hidden><h3>Evidence review</h3><p id="qa-summary" class="hint"></p><ul id="issues"></ul></section><article id="report" class="report" aria-label="Report text"></article><p id="copy-status" role="status"></p><section id="evidence" class="evidence" hidden><h2>Source evidence</h2><p class="hint">Highlighted passages are exact matches in retrieved abstracts. The attached claim is the model’s interpretation.</p><div id="sources"></div></section></section></div></div><footer>Local inference has no model API fee. Topics are sent to arXiv for paper search. Reports and approval checkpoints are held in memory and expire when the server restarts. Download approved reports to keep them.</footer></main>
 <script>
-const $=id=>document.getElementById(id);let activeJob=null;let timer=null;let report='';
-const hints={demo:'Explore the full workflow using clearly fictional sample sources. No network request or AI model is used.',extractive:'Search live arXiv abstracts and collect them in a cited report. Text is preserved without AI synthesis; no API key is needed.',ai:'Three AutoGen agents research, critique, and write using live arXiv abstracts. Requires the server’s OpenAI API key and incurs provider usage.'};
-const stageNames=['collecting','summarizing','reviewing','writing'];const stageTitles={collecting:'Collecting source material…',summarizing:'Organizing the evidence…',reviewing:'Reviewing findings and limitations…',writing:'Preparing your report…',queued:'Starting your research…'};
-$('mode').onchange=()=>{$('mode-hint').textContent=hints[$('mode').value]};
-document.querySelectorAll('[data-topic]').forEach(b=>b.onclick=()=>{$('topic').value=b.dataset.topic;$('topic').focus()});
-function stages(stage,done=false){const index=stageNames.indexOf(stage);document.querySelectorAll('[data-stage]').forEach((el,i)=>{el.classList.toggle('active',!done&&i===index);el.classList.toggle('done',done||i<index)})}
-function busy(value){$('start').disabled=value;$('topic').disabled=value;$('mode').disabled=value;$('limit').disabled=value;$('cancel').hidden=!value;$('workspace').setAttribute('aria-busy',String(value))}
-function showError(text){$('error').textContent=text;$('error').hidden=false;$('progress').hidden=true;$('empty').hidden=true;busy(false)}
-async function api(url,options){const r=await fetch(url,options);let data;try{data=await r.json()}catch{throw Error('The server returned an unreadable response.')}if(!r.ok)throw Error(typeof data.detail==='string'?data.detail:'Check the topic and try again.');return data}
-function showResult(job){report=job.report;renderReport(report);$('result').hidden=false;$('progress').hidden=true;$('actions').hidden=false;$('download').href='/api/jobs/'+job.id+'/report';$('result-mode').textContent=job.mode==='demo'?'Offline sample · Fictional sample sources. This report does not research the entered topic. No AI model was called.':job.mode==='extractive'?'Live arXiv extracts · Abstracts are reproduced without AI synthesis.':'AI research team · Review generated claims against the source material.';$('result-meta').textContent=job.sources.length+' sources · Completed '+new Date(job.finished_at||job.created_at).toLocaleString();$('sources').hidden=false;$('source-list').replaceChildren();job.sources.forEach(s=>{const card=document.createElement('article');card.className='source';const title=document.createElement(/^https:\/\/arxiv\.org\/abs\//.test(s.url)?'a':'strong');title.textContent='['+s.id+'] '+s.title;if(title.tagName==='A'){title.href=s.url;title.target='_blank';title.rel='noopener noreferrer'}card.append(title);const date=document.createElement('p');date.textContent=s.published;card.append(date);const details=document.createElement('details');const summary=document.createElement('summary');summary.textContent='Read source abstract';const abstract=document.createElement('p');abstract.textContent=s.abstract;details.append(summary,abstract);card.append(details);$('source-list').append(card)});stages('writing',true);busy(false)}
-const savedKey = 'research-recent-reports-v1';
-let savedReports = [];
-let downloadUrl;
-try {
-  const saved = JSON.parse(sessionStorage.getItem(savedKey) || '[]');
-  if (Array.isArray(saved)) savedReports = saved.filter(item => item && typeof item.report === 'string' && Array.isArray(item.sources)).slice(0,5);
-} catch {}
+const $=id=>document.getElementById(id);
+const hosted=!!document.querySelector('meta[name="research-hosting"][content="static"]');
+const apiBase=hosted?'http://127.0.0.1:8002':'';
+let backendEnabled=!hosted;
+let current=null,pollTimer=null,job=null,history=[],config=null;
+try{history=JSON.parse(sessionStorage.getItem('research-studio-history')||'[]');if(!Array.isArray(history))history=[]}catch{}
+const hints={extractive:'Real arXiv sources organized without an AI model. No synthesis or approval stage.',local:'Three local AutoGen specialists + LangChain evidence QA. Up to two revisions, then your approval. No paid model API.',ai:'Optional OpenAI AutoGen workflow. Uses provider credits; this legacy mode has no approval checkpoint.'};
+const stageOrder=['collecting','analyzing','writing','reviewing','awaiting_approval'];
+function message(text){$('message').textContent=text;$('message').hidden=!text}
+function busy(active){for(const id of ['start','topic','mode','limit','open-saved'])$(id).disabled=active;$('cancel').hidden=!active;$('research-form').setAttribute('aria-busy',String(active))}
+async function api(path,options){if(!backendEnabled)throw Error('Start the local backend and click Connect local backend.');let r;try{r=await fetch(apiBase+path,options)}catch{throw Error(hosted?'Cannot reach the local backend. Run the server on port 8002, allow this site in RESEARCH_ALLOWED_ORIGINS, and allow local network access if your browser asks.':'Cannot reach the research server. Check that it is running.');}let data;try{data=await r.json()}catch{throw Error('The server returned an unreadable response. Please check the connection.')}if(!r.ok)throw Error(typeof data.detail==='string'?data.detail:'The request failed. Please retry.');return data}
+async function setup(){if(hosted&&!backendEnabled){$('connection').textContent='Local backend not connected';$('setup-message').textContent='This free Vercel interface uses the research backend and Ollama on your computer. Start the backend on port 8002, then connect.';$('refresh').textContent='Connect local backend';$('start').disabled=true;$('mode').replaceChildren(new Option('Local research team · Ollama','local'),new Option('Collect paper abstracts','extractive'));$('mode-hint').textContent=hints.local;updateFlow(null);return}try{config=await api('/api/config');$('start').disabled=!!current;$('refresh').textContent='Check model setup';const previous=$('mode').value;$('mode').replaceChildren();for(const [value,label] of [['local','Local research team · Ollama'],['extractive','Collect paper abstracts'],['ai','OpenAI research team']]){if(value==='local'&&!config.local.ready||value==='ai'&&!config.ai_configured)continue;const o=new Option(label,value);$('mode').add(o)}$('mode').value=config.local.ready?'local':previous;if(!$('mode').value)$('mode').value='extractive';$('mode-hint').textContent=hints[$('mode').value];$('connection').textContent=config.local.ready?'Local team ready · '+config.local.model:'Paper search ready';if(!current)updateFlow(job);$('setup-message').textContent=config.local.message+' · LangGraph + AutoGen + LangChain/Ollama.'}catch(e){$('connection').textContent='Server unavailable';$('start').disabled=true;message(e.message)}}
+$('mode').onchange=()=>{$('mode-hint').textContent=hints[$('mode').value];if(!current)updateFlow(null)};$('refresh').onclick=()=>{backendEnabled=true;setup()};
+function inline(node,text){for(const part of text.split(/(\*\*[^*]+\*\*|\[S\d+\])/g)){if(/^\[S\d+\]$/.test(part)){const a=document.createElement('a');a.className='citation';a.href='#source-'+part.slice(1,-1);a.textContent=part;node.append(a)}else if(part.startsWith('**')&&part.endsWith('**')){const b=document.createElement('strong');b.textContent=part.slice(2,-2);node.append(b)}else node.append(document.createTextNode(part))}}
+function render(text){$('report').replaceChildren();let paragraph=[],list=null;const flush=()=>{if(paragraph.length){const p=document.createElement('p');inline(p,paragraph.join(' '));$('report').append(p);paragraph=[]}};for(const line of text.split('\n')){const h=line.match(/^#{1,6}\s+(.*)/),li=line.match(/^\s*(?:[-*]|\d+\.)\s+(.*)/);if(!line.trim()){flush();list=null;continue}if(h){flush();list=null;const n=document.createElement('h2');inline(n,h[1]);$('report').append(n)}else if(li){flush();if(!list){list=document.createElement('ul');$('report').append(list)}const n=document.createElement('li');inline(n,li[1]);list.append(n)}else{list=null;paragraph.push(line.replace(/^>\s*/,''))}}flush()}
+function showSources(j){$('sources').replaceChildren();for(const s of j.sources||[]){const card=document.createElement('section');card.className='source';card.id='source-'+s.id;const a=document.createElement('a');a.textContent='['+s.id+'] '+s.title;if(/^https:\/\/arxiv.org\/abs\/[\w./-]+$/.test(s.url)){a.href=s.url;a.target='_blank';a.rel='noopener noreferrer'}card.append(a);const date=document.createElement('p');date.className='hint';date.textContent=s.published;card.append(date);for(const e of j.audit?.evidence||[]){if(e.source_id!==s.id)continue;const claim=document.createElement('p');claim.textContent=e.claim;card.append(claim);const quote=document.createElement('blockquote');const mark=document.createElement('mark');mark.textContent=e.quote;quote.append(mark);card.append(quote)}const d=document.createElement('details'),summary=document.createElement('summary'),p=document.createElement('p');summary.textContent='Read full retrieved abstract';p.textContent=s.abstract;d.append(summary,p);card.append(d);$('sources').append(card)}$('evidence').hidden=!j.sources?.length}
+function showHistory(){const selected=$('saved').value;$('saved').replaceChildren(...history.map(j=>new Option(j.topic+' · '+j.status,j.id)));if(history.some(j=>j.id===selected))$('saved').value=selected;$('history').hidden=!history.length}
+function remember(j){history=[j,...history.filter(x=>x.id!==j.id)].slice(0,5);try{sessionStorage.setItem('research-studio-history',JSON.stringify(history))}catch{}showHistory()}
 
-function renderReport(markdown) {
-  const target = $('report');
-  target.replaceChildren();
-  let list = null;
-  for (const line of markdown.split(/\r?\n/)) {
-    if (!line.trim()) { list = null; continue; }
-    const heading = line.match(/^#{1,6}\s+(.*)/);
-    const item = line.match(/^[-*]\s+(.*)/);
-    if (item) {
-      if (!list) { list = document.createElement('ul'); target.append(list); }
-      const row = document.createElement('li');
-      row.textContent = item[1];
-      list.append(row);
-    } else {
-      list = null;
-      const node = document.createElement(heading ? 'h3' : 'p');
-      node.textContent = heading ? heading[1] : line.replace(/^>\s*/, '');
-      target.append(node);
-    }
-  }
+const flowRoles={collect:['Collect sources','Searches arXiv and attaches source IDs, original abstracts, and links.'],research:['Research agent','Identifies findings, disagreements, and limitations in the retrieved abstracts.'],analyst:['Benchmark analyst','Extracts reported measurements and comparisons; marks missing quantitative evidence.'],writer:['Writer agent','Joins both specialist outputs into a cited brief. Revises the draft when QA requests changes.'],qa:['Evidence QA','Reviews claims against original source passages and validates selected evidence references.'],approval:['Your approval','LangGraph pauses here after QA passes. You inspect the draft and decide whether to enable export.'],export:['Final report','An approved report becomes available for copying and Markdown download.']};
+let flowStates={},selectedFlow=null;
+function inspectFlow(){if(!selectedFlow)return;const [title,description]=flowRoles[selectedFlow];$('flow-inspect').textContent=title+' · '+(flowStates[selectedFlow]||'waiting')+'. '+description;document.querySelectorAll('[data-node]').forEach(n=>n.setAttribute('aria-pressed',String(n.dataset.node===selectedFlow)))}
+document.querySelectorAll('[data-node]').forEach(node=>{const select=()=>{selectedFlow=node.dataset.node;inspectFlow()};node.addEventListener('click',select);node.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();select()}})});
+function updateFlow(j){
+ const local=(j?.mode||$('mode').value)==='local';$('local-flow').toggleAttribute('hidden',!local);$('simple-flow').toggleAttribute('hidden',local);
+ $('flow-caption').textContent=local?'Two specialists work in parallel, then the draft passes through evidence review and your approval.':'This mode uses a sequential workflow. Parallel local specialists and the approval checkpoint are not used.';
+ $('flow-inspect').hidden=!local;
+ const state=j?.status||'idle',stage=(['failed','cancelled'].includes(j?.status)?j?.events?.at(-1)?.stage:null)||j?.stage||'idle',events=j?.events||[],messages=events.map(e=>e.message.toLowerCase()),active=['queued','running','approving'].includes(state);
+ flowStates=Object.fromEntries(Object.keys(flowRoles).map(k=>[k,'waiting']));
+ const found=part=>messages.some(m=>m.includes(part));
+ if(found('retrieved ')||j?.sources?.length||['analyzing','writing','reviewing','awaiting_approval','needs_review','completed','rejected'].includes(stage))flowStates.collect='done';
+ else if(stage==='collecting')flowStates.collect='running';
+ for(const [key,name] of [['research','researcher'],['analyst','analyst']]){if(found(name+' completed'))flowStates[key]='done';else if(found('autogen '+name+' started'))flowStates[key]='running'}
+ if(['writing','reviewing','awaiting_approval','completed','rejected','needs_review'].includes(stage)){flowStates.research='done';flowStates.analyst='done'}
+ if(stage==='writing'){flowStates.writer='running';if(found('qa flagged issues'))flowStates.qa='blocked'}
+ if(stage==='reviewing'){flowStates.writer='done';flowStates.qa='running'}
+ if(['awaiting_approval','completed','rejected','needs_review'].includes(state)){flowStates.writer='done';flowStates.qa=j?.audit?.passed?'done':'blocked'}
+ if(state==='awaiting_approval'||state==='approving')flowStates.approval='running';
+ if(state==='completed'){flowStates.approval='done';flowStates.export='done'}
+ if(state==='rejected')flowStates.approval='blocked';
+ if(state==='failed'||state==='cancelled'){for(const k of Object.keys(flowStates))if(flowStates[k]==='running')flowStates[k]='blocked'}
+ for(const [key,value] of Object.entries(flowStates)){const node=$('node-'+key);node.dataset.state=value;$('state-'+key).textContent=({waiting:'Waiting',running:key==='approval'?'Awaiting decision':'Running',done:'Completed',blocked:state==='cancelled'?'Stopped':state==='rejected'?'Rejected':'Blocked'})[value];node.setAttribute('aria-label',flowRoles[key][0]+': '+$('state-'+key).textContent)}
+ document.querySelectorAll('[data-edge]').forEach(edge=>edge.classList.toggle('live',active&&flowStates[edge.dataset.edge]==='running'));
+ const attempts=events.filter(e=>e.stage==='writing').length;$('revision-edge').classList.toggle('live',active&&stage==='writing'&&attempts>1);
+ const simpleIndex=['collecting','summarizing','reviewing','writing'].indexOf(stage);for(let i=0;i<4;i++){let value=state==='completed'?'done':i<simpleIndex?'done':i===simpleIndex&&active?'running':'waiting';if(i===simpleIndex&&!active&&['failed','cancelled'].includes(state))value='blocked';$('simple-'+i).dataset.state=value;$('simple-state-'+i).textContent=({waiting:'Waiting',running:'Running',done:'Completed',blocked:'Stopped'})[value]}
+ const labels={idle:'Ready to begin',queued:'Waiting to start',collecting:'Collecting source evidence',analyzing:'Research and benchmark analysis',summarizing:'Organizing source findings',writing:'Writing the report'+(attempts>1?' · revision '+(attempts-1)+'/2':''),reviewing:'Checking evidence',awaiting_approval:'Paused for your approval',approving:'Applying your decision',completed:'Report ready',needs_review:'QA blocked final export',rejected:'Draft rejected',failed:'Research stopped with an error',cancelled:'Research cancelled'};
+ $('flow-status').textContent=labels[active?stage:state]||'Research in progress';
+ $('flow-description').textContent=state==='failed'?j.error:state==='needs_review'?'QA found unresolved issues after the allowed revisions. Inspect the draft and evidence below.':state==='awaiting_approval'?'QA passed. Review the supporting passages below, then approve or reject the draft.':state==='completed'?'The report is ready to inspect and download.':state==='rejected'?'You rejected this draft. Final export remains disabled.':state==='cancelled'?'The run has stopped. Start a new topic when ready.':events.at(-1)?.message||'Start research to watch the real workflow progress. Select a node to understand its role.';
+ inspectFlow();
 }
 
-function refreshSaved() {
-  $('saved-report').replaceChildren(...savedReports.map(job => {
-    const option = document.createElement('option');
-    option.value = job.id;
-    option.textContent = job.topic || 'Completed research report';
-    return option;
-  }));
-  $('recent-reports').hidden = savedReports.length === 0;
-}
-
-function rememberReport(job) {
-  savedReports = [job, ...savedReports.filter(record => record.id !== job.id)].slice(0, 5);
-  try { sessionStorage.setItem(savedKey, JSON.stringify(savedReports)); } catch {}
-  refreshSaved();
-}
-
-$('open-report').addEventListener('click', () => {
-  if (activeJob || $('start').disabled) return;
-  const saved = savedReports.find(job => job.id === $('saved-report').value);
-  if (!saved) return;
-  $('empty').hidden = true;
-  $('error').hidden = true;
-  $('copy-status').textContent = '';
-  showResult(saved);
-  if (downloadUrl) URL.revokeObjectURL(downloadUrl);
-  downloadUrl = URL.createObjectURL(new Blob([saved.report], { type: 'text/markdown;charset=utf-8' }));
-  $('download').href = downloadUrl;
-  $('download').download = 'research-report.md';
-  $('report-pane').scrollIntoView({block:'start'});
-});
-refreshSaved();
-function stopPolling(){if(timer)clearTimeout(timer);timer=null}
-async function poll(id){try{const job=await api('/api/jobs/'+id);if(activeJob!==id)return;if(job.status==='completed'){showResult(job);rememberReport(job);sessionStorage.removeItem('research-job');activeJob=null;return}if(job.status==='failed'||job.status==='cancelled'){showError(job.error||'Research stopped.');sessionStorage.removeItem('research-job');activeJob=null;return}$('progress-title').textContent=stageTitles[job.stage]||'Research in progress…';stages(job.stage);timer=setTimeout(()=>poll(id),800)}catch(err){showError(err.message);sessionStorage.removeItem('research-job');activeJob=null}}
-$('research-form').onsubmit=async e=>{e.preventDefault();stopPolling();$('form-error').hidden=true;$('error').hidden=true;$('empty').hidden=true;$('result').hidden=true;$('sources').hidden=true;$('actions').hidden=true;$('copy-status').textContent='';$('progress').hidden=false;$('progress-title').textContent='Starting your research…';const payload={topic:$('topic').value.trim(),mode:$('mode').value,limit:Number($('limit').value)};busy(true);try{const job=await api('/api/jobs',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});activeJob=job.id;sessionStorage.setItem('research-job',job.id);poll(job.id)}catch(err){showError(err.message)}};
-$('cancel').onclick=async()=>{if(!activeJob)return;const id=activeJob;try{await api('/api/jobs/'+id,{method:'DELETE'});stopPolling();activeJob=null;sessionStorage.removeItem('research-job');showError('Research cancelled. You can start a new topic.')}catch(err){showError(err.message)}};
-$('copy').onclick=async()=>{try{await navigator.clipboard.writeText(report);$('copy-status').textContent='Report copied.'}catch{$('copy-status').textContent='Copy is unavailable in this browser. Download the Markdown report instead.'}};
-(async()=>{try{const config=await api('/api/config');$('connection').textContent=config.ai_configured?'AI team configured · '+config.model:'Ready · offline and live extracts';if(!config.ai_configured){$('ai-option').disabled=true;$('ai-option').textContent='AI research team · key required'}}catch{$('connection').textContent='Server connection unavailable'}const saved=sessionStorage.getItem('research-job');if(saved){activeJob=saved;$('empty').hidden=true;$('progress').hidden=false;busy(true);poll(saved)}})();
+function show(j){updateFlow(j);job=j;document.body.dataset.state=j.status;$('empty').hidden=true;const running=['queued','running','approving'].includes(j.status);busy(running);const stage=j.stage==='summarizing'?'analyzing':j.stage==='completed'?'awaiting_approval':j.stage;const i=stageOrder.indexOf(stage);document.querySelectorAll('[data-stage]').forEach((el,n)=>{el.classList.toggle('active',running&&n===i||j.status==='awaiting_approval'&&n===4);el.classList.toggle('done',j.status==='completed'||n<i)});$('events').replaceChildren(...(j.events||[]).map(e=>{const li=document.createElement('li');li.textContent=new Date(e.time).toLocaleTimeString()+' · '+e.message;return li}));$('trace').hidden=!j.events?.length;$('approval').hidden=j.status!=='awaiting_approval';$('agent-notes').hidden=!j.notes&&!j.metrics;$('research-notes').textContent=j.notes||'';$('analysis-notes').textContent=j.metrics||'';$('qa').hidden=!j.audit;if(j.audit){$('qa-summary').textContent=(j.audit.passed?'Automated QA passed':'QA has unresolved issues')+' · '+j.attempts+' drafting attempt(s). Exact quotes are checked; semantic support is assessed by the model.';$('issues').replaceChildren(...j.audit.issues.map(x=>{const li=document.createElement('li');li.textContent=x;return li}))}if(j.report){render(j.report);showSources(j)}else{$('report').replaceChildren();$('evidence').hidden=true}$('actions').hidden=j.status!=='completed';$('download').href=apiBase+'/api/jobs/'+j.id+'/report';$('report-title').textContent=j.status==='completed'?'Research report':j.report?'Research draft':'Research workspace';const messages={queued:'Starting research…',running:'Working locally. You can follow the actual events below.',awaiting_approval:'Research paused for your approval. Review the draft and source evidence.',needs_review:'QA still found problems after two revisions. This draft is not approved and export is blocked.',completed:j.mode==='local'?'Approved by you. Ready to copy or download.':'Paper report ready. Check source abstracts before relying on claims.',failed:j.error,cancelled:'Research cancelled.',rejected:'Draft rejected. Start a new research run when ready.'};message(messages[j.status]||'')}
+async function poll(id){try{const j=await api('/api/jobs/'+id);if(current!==id)return;show(j);if(['queued','running','approving'].includes(j.status)){pollTimer=setTimeout(()=>poll(id),1000)}else{remember(j);sessionStorage.removeItem('research-studio-active');current=null}}catch(e){message(e.message);busy(false);current=null;sessionStorage.removeItem('research-studio-active')}}
+$('research-form').onsubmit=async e=>{e.preventDefault();clearTimeout(pollTimer);$('copy-status').textContent='';busy(true);message('Starting research…');try{const j=await api('/api/jobs',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({topic:$('topic').value.trim(),mode:$('mode').value,limit:Number($('limit').value)})});current=j.id;sessionStorage.setItem('research-studio-active',j.id);show(j);poll(j.id)}catch(e){message(e.message);busy(false)}};
+$('cancel').onclick=async()=>{if(!current)return;try{const j=await api('/api/jobs/'+current,{method:'DELETE'});clearTimeout(pollTimer);current=null;sessionStorage.removeItem('research-studio-active');show(j)}catch(e){message(e.message)}};
+async function decide(approved){if(!job)return;$('approve').disabled=$('reject').disabled=true;try{const j=await api('/api/jobs/'+job.id+'/approval',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({approved})});show(j);remember(j)}catch(e){message(e.message)}finally{$('approve').disabled=$('reject').disabled=false}}
+$('approve').onclick=()=>decide(true);$('reject').onclick=()=>decide(false);
+$('copy').onclick=async()=>{try{await navigator.clipboard.writeText(job.report);$('copy-status').textContent='Report copied.'}catch{$('copy-status').textContent='Use Download Markdown to save this report.'}};
+$('open-saved').onclick=async()=>{const cached=history.find(j=>j.id===$('saved').value);if(!cached)return;try{const j=await api('/api/jobs/'+cached.id);show(j)}catch{show({...cached,status:'needs_review'});message('Saved preview only. Server session expired; run research again for approval or export.')}};
+showHistory();setup();const saved=new URLSearchParams(location.search).get('job')||sessionStorage.getItem('research-studio-active');if(saved&&backendEnabled){current=saved;poll(saved)}
 </script></body></html>

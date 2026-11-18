@@ -11,11 +11,14 @@ from typing import Literal
 from uuid import uuid4
 
 from dotenv import load_dotenv
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Request
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
 from fastapi.responses import HTMLResponse, Response
 from pydantic import BaseModel, Field, field_validator
 
 from .workflow import ResearchError, run
+from .local_workflow import local_status, run_local, resume_local, sessions
 
 load_dotenv()
 logger = logging.getLogger(__name__)
@@ -34,14 +37,31 @@ async def lifespan(app):
     if pending:
         await asyncio.gather(*pending, return_exceptions=True)
     tasks.clear()
+    sessions.clear()
 
 
 app = FastAPI(title='Multi-Agent Research Assistant', lifespan=lifespan)
+# Exact origins only. Add your assigned Vercel URL in .env; never use a wildcard.
+allowed_origins = [origin.strip().rstrip('/') for origin in os.getenv(
+    'RESEARCH_ALLOWED_ORIGINS', 'http://127.0.0.1:8002,http://localhost:8002'
+).split(',') if origin.strip()]
+app.add_middleware(CORSMiddleware, allow_origins=allowed_origins,
+                   allow_methods=['GET', 'POST', 'DELETE'], allow_headers=['Content-Type'], allow_private_network=True)
+
+
+@app.middleware('http')
+async def browser_origin_guard(request: Request, call_next):
+    origin = request.headers.get('origin')
+    if origin and origin not in allowed_origins:
+        return JSONResponse({'detail': 'This website is not allowed to access the local backend. Add its exact origin to RESEARCH_ALLOWED_ORIGINS and restart.'}, status_code=403)
+    response = await call_next(request)
+    return response
+
 
 
 class ResearchRequest(BaseModel):
     topic: str = Field(min_length=3, max_length=500)
-    mode: Literal['demo', 'extractive', 'ai'] = 'demo'
+    mode: Literal['demo', 'extractive', 'ai', 'local'] = 'extractive'
     limit: int = Field(default=5, ge=1, le=8)
 
     @field_validator('topic')
@@ -58,21 +78,31 @@ async def execute(job_id: str, request: ResearchRequest):
     job['status'] = 'running'
 
     async def progress(stage):
-        job['stage'] = stage
+        if isinstance(stage, dict):
+            job['stage'] = stage['stage']
+            job['events'].append({**stage, 'time': datetime.now(timezone.utc).isoformat()})
+        else:
+            job['stage'] = stage
 
     try:
-        async with asyncio.timeout(300):
-            result = await run(request.topic, mode=request.mode, limit=request.limit, progress=progress)
-        job.update(status='completed', stage='completed', report=result['report'], sources=result['sources'])
+        async with asyncio.timeout(900 if request.mode == 'local' else 300):
+            if request.mode == 'local':
+                result = await run_local(job_id, request.topic, request.limit, progress)
+            else:
+                result = await run(request.topic, mode=request.mode, limit=request.limit, progress=progress)
+        status = ('awaiting_approval' if result['audit']['passed'] else 'needs_review') if request.mode == 'local' else 'completed'
+        job.update(status=status, stage=status, report=result['report'], sources=result['sources'])
+        if request.mode == 'local':
+            job.update(audit=result['audit'], notes=result['notes'], metrics=result['metrics'], attempts=result['attempts'])
     except asyncio.CancelledError:
         job.update(status='cancelled', stage='cancelled', error='Research cancelled.')
     except ResearchError as exc:
         job.update(status='failed', stage='failed', error=str(exc))
     except TimeoutError:
-        job.update(status='failed', stage='failed', error='The research timed out after 5 minutes. Try fewer sources or a shorter topic.')
+        job.update(status='failed', stage='failed', error='The research timed out. Try fewer sources; local models can take several minutes.')
     except Exception:
         logger.exception('Research job failed: %s', job_id)
-        job.update(status='failed', stage='failed', error='The research provider failed. Check server credentials and connectivity, or use the offline sample.')
+        job.update(status='failed', stage='failed', error='The research provider failed. Check Ollama or server credentials and retry. Paper extracts remain available without a model.')
     finally:
         job['finished_at'] = datetime.now(timezone.utc).isoformat()
         tasks.pop(job_id, None)
@@ -90,13 +120,17 @@ async def health():
 
 @app.get('/api/config')
 async def config():
-    return {'ai_configured': bool(os.getenv('OPENAI_API_KEY')), 'model': os.getenv('OPENAI_MODEL', 'gpt-4o-mini'), 'max_sources': 8}
+    return {'local': await local_status(), 'ai_configured': bool(os.getenv('OPENAI_API_KEY')), 'model': os.getenv('OPENAI_MODEL', 'gpt-4o-mini'), 'max_sources': 8}
 
 
 @app.post('/api/jobs', status_code=202)
 async def create_job(request: ResearchRequest):
     if request.mode == 'ai' and not os.getenv('OPENAI_API_KEY'):
         raise HTTPException(503, 'AI mode needs OPENAI_API_KEY. Choose extractive or offline sample mode.')
+    if request.mode == 'local':
+        status = await local_status()
+        if not status['ready']:
+            raise HTTPException(503, status['message'])
     if len(tasks) >= MAX_ACTIVE:
         raise HTTPException(429, 'Three research jobs are already active. Wait for one to finish.')
     while len(jobs) >= MAX_JOBS:
@@ -104,9 +138,10 @@ async def create_job(request: ResearchRequest):
         if oldest is None:
             raise HTTPException(429, 'The job queue is full. Please retry later.')
         jobs.pop(oldest)
+        sessions.pop(oldest, None)
     job_id = uuid4().hex
     job = {'id': job_id, 'topic': request.topic, 'mode': request.mode, 'status': 'queued', 'stage': 'queued',
-           'created_at': datetime.now(timezone.utc).isoformat(), 'sources': [], 'report': '', 'error': None}
+           'created_at': datetime.now(timezone.utc).isoformat(), 'sources': [], 'report': '', 'error': None, 'events': []}
     jobs[job_id] = job
     tasks[job_id] = asyncio.create_task(execute(job_id, request))
     return job
@@ -133,6 +168,29 @@ async def cancel_job(job_id: str):
         # A task cancelled before it starts does not run its finally block.
         tasks.pop(job_id, None)
         job.update(status='cancelled', stage='cancelled', error='Research cancelled.')
+    if job['status'] == 'awaiting_approval':
+        sessions.pop(job_id, None)
+        job.update(status='cancelled', stage='cancelled')
+    return job
+
+
+class ApprovalRequest(BaseModel):
+    approved: bool
+
+
+@app.post('/api/jobs/{job_id}/approval')
+async def approve_job(job_id: str, request: ApprovalRequest):
+    job = find_job(job_id)
+    if job['status'] != 'awaiting_approval':
+        raise HTTPException(409, 'This report is not awaiting approval.')
+    job['status'] = 'approving'
+    try:
+        result = await resume_local(job_id, request.approved)
+    except ResearchError as exc:
+        job['status'] = 'awaiting_approval'
+        raise HTTPException(409, str(exc)) from exc
+    status = 'completed' if result.get('approved') else 'rejected'
+    job.update(status=status, stage=status, approved=result.get('approved', False))
     return job
 
 

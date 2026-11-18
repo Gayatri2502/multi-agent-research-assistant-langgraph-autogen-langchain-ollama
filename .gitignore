@@ -3,3 +3,9 @@
 __pycache__/
 .pytest_cache/
 reports/
+
+# Deployment output and local configuration
+.vercel/
+dist/
+node_modules/
+.DS_Store

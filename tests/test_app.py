@@ -64,3 +64,60 @@ def test_cancel_and_capacity(monkeypatch):
         assert client.get('/health').json()['active_jobs'] == 2
         for job_id in ids[1:]:
             client.delete('/api/jobs/' + job_id)
+
+
+def test_local_approval_gate_and_rejection(monkeypatch):
+    async def ready(): return {'ready': True, 'model': 'test-local', 'message': 'Ready'}
+    async def local(*args, **kwargs):
+        return {'report': 'A draft [S1]', 'sources': [], 'notes': 'Research', 'metrics': 'Analysis',
+                'attempts': 1, 'audit': {'passed': True, 'issues': [], 'evidence': []}}
+    async def resume(job_id, approved): return {'approved': approved}
+    monkeypatch.setattr(module, 'local_status', ready)
+    monkeypatch.setattr(module, 'run_local', local)
+    monkeypatch.setattr(module, 'resume_local', resume)
+    with TestClient(module.app) as client:
+        for decision in (True, False):
+            job_id = client.post('/api/jobs', json={'topic': 'Local research', 'mode': 'local'}).json()['id']
+            for _ in range(100):
+                job = client.get('/api/jobs/' + job_id).json()
+                if job['status'] == 'awaiting_approval': break
+                time.sleep(.01)
+            assert job['status'] == 'awaiting_approval'
+            assert client.get('/api/jobs/' + job_id + '/report').status_code == 409
+            response = client.post('/api/jobs/' + job_id + '/approval', json={'approved': decision})
+            assert response.json()['status'] == ('completed' if decision else 'rejected')
+            assert client.get('/api/jobs/' + job_id + '/report').status_code == (200 if decision else 409)
+            assert client.post('/api/jobs/' + job_id + '/approval', json={'approved': True}).status_code == 409
+
+
+def test_unresolved_qa_cannot_be_approved(monkeypatch):
+    async def ready(): return {'ready': True, 'model': 'test-local', 'message': 'Ready'}
+    async def local(*args, **kwargs):
+        return {'report': 'Unresolved draft [S1]', 'sources': [], 'notes': '', 'metrics': '', 'attempts': 3,
+                'audit': {'passed': False, 'issues': ['Unsupported claim'], 'evidence': []}}
+    monkeypatch.setattr(module, 'local_status', ready)
+    monkeypatch.setattr(module, 'run_local', local)
+    with TestClient(module.app) as client:
+        job_id = client.post('/api/jobs', json={'topic': 'Local research', 'mode': 'local'}).json()['id']
+        for _ in range(100):
+            job = client.get('/api/jobs/' + job_id).json()
+            if job['status'] == 'needs_review': break
+            time.sleep(.01)
+        assert job['status'] == 'needs_review'
+        assert client.post('/api/jobs/' + job_id + '/approval', json={'approved': True}).status_code == 409
+        assert client.get('/api/jobs/' + job_id + '/report').status_code == 409
+
+
+def test_browser_origin_guard_and_private_network_preflight():
+    with TestClient(module.app) as client:
+        denied = client.get('/api/config', headers={'Origin': 'https://untrusted.invalid'})
+        assert denied.status_code == 403
+        allowed = client.options('/api/jobs', headers={
+            'Origin': 'http://127.0.0.1:8002',
+            'Access-Control-Request-Method': 'POST',
+            'Access-Control-Request-Headers': 'Content-Type',
+            'Access-Control-Request-Private-Network': 'true',
+        })
+        assert allowed.status_code == 200
+        assert allowed.headers['access-control-allow-origin'] == 'http://127.0.0.1:8002'
+        assert allowed.headers['access-control-allow-private-network'] == 'true'
