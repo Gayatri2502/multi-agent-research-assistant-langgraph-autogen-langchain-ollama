@@ -6,7 +6,7 @@
 
 Research Studio retrieves real sources, runs research and benchmark-analysis agents, writes a structured report, checks supporting passages, and pauses for your decision. A live diagram shows which stage is running and what it is doing. The interface stays black, white, and gray.
 
-**[Open the hosted interface](https://multi-agent-research-assistant-langgraph-autogen-langchain-ollama.vercel.app/)** · [How to run locally](#run-on-your-computer) · [How it works](#the-workflow) · [Architecture](docs/architecture.md)
+**[Open the hosted interface](https://multi-agent-research-langgraph-autogen-langchain-ollama.vercel.app/)** · [How to run locally](#run-on-your-computer) · [How it works](#the-workflow) · [Architecture](docs/architecture.md)
 
 > **Hosting arrangement:** Vercel serves the interface only. Start the Python backend and Ollama on your own computer to perform research. Opening the website alone does not give you a cloud-hosted AI model. There is no paid backend, Blob store, database subscription, or model API required for local mode.
 
@@ -170,7 +170,7 @@ Using the virtual environment's Python directly avoids PowerShell activation-pol
 2. In `.env`, add the **exact origin** of the deployed website to the comma-separated allowlist. For example:
 
    ```dotenv
-   RESEARCH_ALLOWED_ORIGINS=http://127.0.0.1:8002,http://localhost:8002,https://multi-agent-research-assistant-langgraph-autogen-langchain-ollama.vercel.app
+   RESEARCH_ALLOWED_ORIGINS=http://127.0.0.1:8002,http://localhost:8002,https://multi-agent-research-langgraph-autogen-langchain-ollama.vercel.app
    ```
 
 3. Restart the backend after editing `.env`.
