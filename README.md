@@ -345,3 +345,9 @@ Create a branch, keep credentials and generated private reports out of Git, make
 - [Ollama](https://ollama.com/)
 - [arXiv API manual](https://info.arxiv.org/help/api/user-manual.html)
 - [Vercel Hobby plan](https://vercel.com/docs/plans/hobby)
+
+### Local workspace
+
+The following screenshot shows the locally running workspace with its model setup and workflow controls; it does not show a completed research run.
+
+![Local research workspace](screenshot.jpg)
